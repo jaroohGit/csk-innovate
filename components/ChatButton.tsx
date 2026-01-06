@@ -11,9 +11,10 @@ interface Message {
 export default function ChatButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
-      text: 'สวัสดีครับ! ผม Teddy ผมสามารถช่วยตอบคำถามเบื้องต้นเกี่ยวกับ CSK INNOVATE ได้ครับ\n\nลองถามเกี่ยวกับ:\n• บริการของเรา\n• IIoT\n• AI Analytics\n• ติดต่อเรา',
+      text: 'สวัสดีครับ! ผม Teddy ผมสามารถช่วยตอบคำถามเกี่ยวกับ CSK INNOVATE ได้ครับ\n\nลองถามเกี่ยวกับ:\n• บริการของเรา\n• IIoT Platform\n• AI Analytics\n• ติดต่อเรา',
       isUser: false,
       timestamp: new Date(),
     },
@@ -28,55 +29,8 @@ export default function ChatButton() {
     scrollToBottom();
   }, [messages]);
 
-  const getBotResponse = (userMessage: string): string => {
-    const msg = userMessage.toLowerCase();
-
-    // สวัสดี / Hello
-    if (msg.includes('สวัสดี') || msg.includes('hello') || msg.includes('hi')) {
-      return 'สวัสดีครับ! ยินดีที่ได้รู้จักครับ มีอะไรให้ผมช่วยไหมครับ?';
-    }
-
-    // บริการ / Services
-    if (msg.includes('บริการ') || msg.includes('service') || msg.includes('ทำอะไร')) {
-      return 'CSK INNOVATE มีบริการหลัก 4 ด้าน:\n\n1. 🏭 Industrial IIoT Platform\n   - Real-time monitoring\n   - Remote control systems\n\n2. 🤖 AI Analytics & Prediction\n   - Predictive maintenance\n   - Process optimization\n\n3. 🎯 Smart Manufacturing Solutions\n   - Digital transformation\n   - Industry 4.0\n\n4. 💼 Use Cases & Success Stories\n   - Wastewater treatment\n   - Food & beverage industry\n\nสนใจด้านไหนเป็นพิเศษครับ?';
-    }
-
-    // IIoT
-    if (msg.includes('iiot') || msg.includes('iot') || msg.includes('อินเทอร์เน็ต')) {
-      return '🏭 Industrial IIoT Platform ของเรา:\n\n• Real-time Data Monitoring\n  - ติดตามข้อมูลแบบเรียลไทม์\n  - Dashboard แสดงผลข้อมูล\n\n• Remote Control\n  - ควบคุมระบบจากระยะไกล\n  - Alert & notification\n\n• MQTT Protocol\n  - การสื่อสารที่เสถียร\n  - รองรับ sensor หลากหลาย\n\nสนใจรายละเอียดเพิ่มเติมไหมครับ?';
-    }
-
-    // AI
-    if (msg.includes('ai') || msg.includes('artificial') || msg.includes('ปัญญาประดิษฐ์') || msg.includes('เอไอ')) {
-      return '🤖 AI Analytics & Prediction:\n\n• Predictive Maintenance\n  - ทำนายการเสียของเครื่องจักร\n  - ลดค่าใช้จ่ายในการซ่อมบำรุง\n\n• Process Optimization\n  - เพิ่มประสิทธิภาพการผลิต\n  - ลดของเสีย\n\n• Machine Learning Models\n  - BOD/COD prediction\n  - Quality control\n\nต้องการทราบรายละเอียดเพิ่มเติมไหมครับ?';
-    }
-
-    // ติดต่อ / Contact
-    if (msg.includes('ติดต่อ') || msg.includes('contact') || msg.includes('email') || msg.includes('โทร') || msg.includes('phone')) {
-      return '📞 ติดต่อ CSK INNOVATE:\n\n• Email: info@cskinnovate.com\n• Phone: +66 (0) XX-XXX-XXXX\n• Website: www.cskinnovate.com\n\nหรือสามารถกรอกฟอร์มติดต่อในหน้าเว็บด้านล่างได้เลยครับ!';
-    }
-
-    // ราคา / Price
-    if (msg.includes('ราคา') || msg.includes('price') || msg.includes('ค่าใช้จ่าย') || msg.includes('cost')) {
-      return 'ราคาของบริการจะขึ้นอยู่กับ:\n\n• ขนาดของโครงการ\n• จำนวน sensors/devices\n• ความซับซ้อนของระบบ\n• Feature ที่ต้องการ\n\nแนะนำให้ติดต่อทีมงานเพื่อขอใบเสนอราคาที่เหมาะสมกับความต้องการของคุณครับ!\n\n📧 Email: info@cskinnovate.com';
-    }
-
-    // Wastewater
-    if (msg.includes('น้ำเสีย') || msg.includes('wastewater') || msg.includes('wwt') || msg.includes('บำบัด')) {
-      return '💧 Wastewater Treatment Monitoring:\n\n• Real-time parameter monitoring\n  - pH, BOD, COD, SS\n  - Temperature, Flow rate\n\n• Treatment Efficiency\n  - BOD removal: 86%+\n  - COD removal: 70%+\n  - SS removal: 83%+\n\n• Predictive Analytics\n  - BOD prediction\n  - Maintenance scheduling\n\nสนใจ case study เพิ่มเติมไหมครับ?';
-    }
-
-    // ขอบคุณ / Thank you
-    if (msg.includes('ขอบคุณ') || msg.includes('thank') || msg.includes('ขอบใจ')) {
-      return 'ยินดีครับ! มีคำถามอื่นๆ อีกไหมครับ? 😊';
-    }
-
-    // Default
-    return 'ขอโทษครับ ผมยังไม่เข้าใจคำถามนี้\n\nลองถามเกี่ยวกับ:\n• บริการของเรา\n• IIoT Platform\n• AI Analytics\n• ติดต่อเรา\n• ราคา\n\nหรือติดต่อทีมงานโดยตรงที่ info@cskinnovate.com ครับ';
-  };
-
-  const handleSend = () => {
-    if (message.trim()) {
+  const handleSend = async () => {
+    if (message.trim() && !isLoading) {
       // Add user message
       const userMsg: Message = {
         text: message,
@@ -84,21 +38,44 @@ export default function ChatButton() {
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, userMsg]);
+      setMessage('');
+      setIsLoading(true);
 
-      // Get bot response
-      const botResponse = getBotResponse(message);
-      
-      // Add bot response after a short delay
-      setTimeout(() => {
+      try {
+        // Call API
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message: message }),
+        });
+
+        if (!response.ok) {
+          throw new Error('API request failed');
+        }
+
+        const data = await response.json();
+        
+        // Add bot response
         const botMsg: Message = {
-          text: botResponse,
+          text: data.message || 'ขอโทษครับ ไม่สามารถตอบคำถามได้ในขณะนี้',
           isUser: false,
           timestamp: new Date(),
         };
         setMessages((prev) => [...prev, botMsg]);
-      }, 500);
-
-      setMessage('');
+      } catch (error) {
+        console.error('Chat error:', error);
+        // Add error message
+        const errorMsg: Message = {
+          text: 'ขอโทษครับ ระบบขัดข้องชั่วคราว กรุณาลองใหม่อีกครั้ง',
+          isUser: false,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, errorMsg]);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -132,7 +109,9 @@ export default function ChatButton() {
               </div>
               <div>
                 <h3 className="text-white font-semibold">Teddy Assistant</h3>
-                <p className="text-white/80 text-xs">Online - Ready to help</p>
+                <p className="text-white/80 text-xs">
+                  {isLoading ? 'Typing...' : 'Online - AI Powered'}
+                </p>
               </div>
             </div>
             <button
@@ -183,21 +162,29 @@ export default function ChatButton() {
                 type="text"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSend()}
                 placeholder="พิมพ์ข้อความ... Type a message..."
                 className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                disabled={isLoading}
               />
               <button
                 onClick={handleSend}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors"
+                disabled={isLoading}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
+                {isLoading ? (
+                  <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  </svg>
+                )}
               </button>
             </div>
             <p className="text-gray-500 text-xs mt-2 text-center">
-              Basic Q&A System - No API required
+              Powered by TinyLlama AI
             </p>
           </div>
         </div>
