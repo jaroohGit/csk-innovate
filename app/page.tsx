@@ -8,7 +8,6 @@ import Blog from '@/components/Blog';
 import Newsletter from '@/components/Newsletter';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import ChatButton from '@/components/ChatButton';
 import ViewportDebugger from '@/components/ViewportDebugger';
 
 export default function Home() {
@@ -24,7 +23,6 @@ export default function Home() {
       <Newsletter />
       <Contact />
       <Footer />
-      <ChatButton />
       <ViewportDebugger />
     </main>
   );
