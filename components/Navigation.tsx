@@ -57,8 +57,14 @@ export default function Navigation() {
             <a href="#contact" className="px-4 py-2 text-gray-300 hover:text-accent transition-colors">
               Contact
             </a>
-            <div className="ml-4">
-              <button className="px-6 py-2.5 bg-accent text-white rounded-full hover:bg-accent/90 transition-all">
+            <div className="ml-4 flex items-center gap-3">
+              <a 
+                href="/login" 
+                className="px-5 py-2.5 text-gray-300 hover:text-white transition-colors font-medium"
+              >
+                Login
+              </a>
+              <button className="px-6 py-2.5 bg-accent text-white rounded-full hover:bg-accent/90 transition-all font-medium">
                 Get Started
               </button>
             </div>
@@ -114,10 +120,17 @@ export default function Navigation() {
               >
                 Contact
               </a>
-              <div className="pt-4">
+              <div className="pt-4 space-y-3">
+                <a 
+                  href="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full px-6 py-3 text-center text-gray-300 border border-gray-600 hover:border-accent hover:text-accent rounded-full transition-all font-medium"
+                >
+                  Login
+                </a>
                 <button 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full px-6 py-3 bg-accent text-white rounded-full hover:bg-accent/90 transition-all"
+                  className="w-full px-6 py-3 bg-accent text-white rounded-full hover:bg-accent/90 transition-all font-medium"
                 >
                   Get Started
                 </button>

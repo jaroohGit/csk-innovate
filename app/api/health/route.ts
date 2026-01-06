@@ -1,5 +1,4 @@
-# Health Check API Endpoint
-
+// Health Check API Endpoint
 import { NextResponse } from 'next/server';
 
 export async function GET() {

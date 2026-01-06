@@ -26,21 +26,10 @@ const config = {
       statements: 50,
     },
   },
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': ['@swc/jest', {
-      jsc: {
-        parser: {
-          syntax: 'typescript',
-          tsx: true,
-        },
-        transform: {
-          react: {
-            runtime: 'automatic',
-          },
-        },
-      },
-    }],
-  },
+  // Skip transform for now - Next.js handles it
+  // transform: {
+  //   '^.+\\.(js|jsx|ts|tsx)$': ['@swc/jest'],
+  // },
   moduleDirectories: ['node_modules', '<rootDir>/'],
 };
 
