@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CSK INNOVATE - Industrial IoT & AI Solutions
 
-## Getting Started
+> Modern web platform for industrial IoT and AI solutions with full CI/CD pipeline
 
-First, run the development server:
+[![CI Pipeline](https://github.com/YOUR-USERNAME/csk-innovate/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR-USERNAME/csk-innovate/actions/workflows/ci.yml)
+[![CD Pipeline](https://github.com/YOUR-USERNAME/csk-innovate/actions/workflows/cd.yml/badge.svg)](https://github.com/YOUR-USERNAME/csk-innovate/actions/workflows/cd.yml)
+
+## 🚀 Quick Start
 
 ```bash
+# Clone repository
+git clone https://github.com/YOUR-USERNAME/csk-innovate.git
+cd csk-innovate
+
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env.local
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📋 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ✅ **Next.js 14** - React framework with App Router
+- ✅ **TypeScript** - Type-safe development
+- ✅ **Tailwind CSS** - Utility-first CSS framework
+- ✅ **CI/CD Pipeline** - Automated testing and deployment
+- ✅ **Docker Support** - Containerized deployment
+- ✅ **API Backend** - Node.js/Express API with PostgreSQL
+- ✅ **Responsive Design** - Mobile-first approach
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+### Frontend
+- Next.js 14 with App Router
+- React 18
+- TypeScript
+- Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Backend
+- Node.js & Express
+- PostgreSQL
+- Docker
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### DevOps
+- GitHub Actions (CI/CD)
+- Docker & Docker Compose
+- Vercel / VPS deployment
 
-## Deploy on Vercel
+## 🔧 Development Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Lint code
+npm run type-check   # TypeScript check
+npm test             # Run tests
+npm run format       # Format code with Prettier
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Docker commands
+npm run docker:build  # Build Docker images
+npm run docker:run    # Run containers
+npm run docker:stop   # Stop containers
+npm run docker:prod   # Production mode
+```
+
+## 🚀 CI/CD Pipeline
+
+This project includes a complete CI/CD setup with GitHub Actions:
+
+### CI Pipeline
+- ✅ Code linting & formatting
+- ✅ TypeScript type checking
+- ✅ Unit tests with coverage
+- ✅ Build verification
+- ✅ Security audits
+- ✅ Docker build tests
+
+### CD Pipeline
+- 🚀 Automated deployment to Vercel
+- 🖥️ VPS deployment via SSH
+- 🔌 API backend deployment
+- 🏥 Health checks
+
+**Quick Setup:** See [QUICKSTART-CICD.md](QUICKSTART-CICD.md)
+
+**Full Documentation:** See [CI-CD-GUIDE.md](CI-CD-GUIDE.md)
+
+## 📦 Project Structure
+
+```
+csk-innovate/
+├── .github/workflows/    # CI/CD pipelines
+├── app/                  # Next.js app directory
+│   ├── api/             # API routes
+│   ├── fonts/           # Custom fonts
+│   └── globals.css      # Global styles
+├── components/          # React components
+├── hooks/               # Custom React hooks
+├── public/              # Static assets
+├── api/                 # Backend API
+│   ├── server.js        # API server
+│   ├── db-connector.js  # Database connection
+│   └── Dockerfile       # API container
+├── nginx/               # Nginx configuration
+├── Dockerfile           # Frontend container
+├── docker-compose.yml   # Docker orchestration
+└── CI-CD-GUIDE.md      # CI/CD documentation
+```
+
+## 🐳 Docker Deployment
+
+### Local Development
+```bash
+docker-compose up -d
+```
+
+### Production
+```bash
+docker-compose -f docker-compose.prod.yml up -d
+```
+
+### Check Status
+```bash
+docker-compose ps
+docker-compose logs -f
+```
+
+## 📚 Documentation
+
+- [CI/CD Setup Guide](CI-CD-GUIDE.md) - Complete CI/CD documentation
+- [Quick Start Guide](QUICKSTART-CICD.md) - Quick setup in 5 minutes
+- [Deployment Guide](DEPLOYMENT.md) - Deployment options
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 🆘 Support
+
+- 📖 [Documentation](CI-CD-GUIDE.md)
+- 🐛 [Issue Tracker](https://github.com/YOUR-USERNAME/csk-innovate/issues)
+
+---
+
+**CSK INNOVATE** - Industrial IoT & AI Solutions
+

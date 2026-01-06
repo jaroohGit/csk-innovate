@@ -2,11 +2,15 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const { getDatabaseContext } = require('./db-connector');
+const healthRouter = require('./health');
 const app = express();
 const PORT = 3010;
 
 app.use(cors());
 app.use(express.json());
+
+// Health check endpoint
+app.use('/api', healthRouter);
 
 // Groq API Configuration
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
@@ -15,11 +19,18 @@ const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 // System prompt - Clear instruction to use provided data
 const SYSTEM_PROMPT = `You are Teddy, assistant for CSK INNOVATE (Industrial IoT and AI company).
 
-CRITICAL: When user asks about system data, pH, temperature, flow rate, or sensor status, 
-you MUST use the "Current System Data" provided in the user message. 
-DO NOT say "I don't have real-time data" - the data IS provided to you.
+CRITICAL INSTRUCTIONS:
+1. When user asks about system data, pH, temperature, flow rate, or sensor status, you MUST use the data provided in the user message.
+2. If user asks about a parameter that doesn't exist exactly, look at "AVAILABLE DATA FIELDS" and "RELEVANT FIELDS" sections to find similar parameters.
+3. DO NOT say "I don't have real-time data" - the data IS provided to you in the message.
+4. If the exact field name doesn't match, use the closest similar field name from the available data.
+5. Answer in Thai or English based on user's language, short and clear.
 
-Answer in Thai or English based on user's language, short and clear.
+FUZZY MATCHING EXAMPLES:
+- If user asks "pH" or "ค่า pH" → use any field containing "ph", "pH", "ph_value"
+- If user asks "temperature" or "อุณหภูมิ" → use "temp", "temperature", "degrees"
+- If user asks "flow" or "ฟลว์" → use "flow", "flow_rate", "flowrate"
+- If user asks "BOD" or "บีโอดี" → use "bod", "bod_in", "bod_out"
 
 Services:
 1. IIoT Platform - Real-time monitoring 150,000 THB
@@ -27,6 +38,7 @@ Services:
 3. Wastewater Treatment - pH BOD COD monitoring
 
 Contact: contact@cskinnovate.com`;
+
 
 app.post('/api/chat', async (req, res) => {
   try {
