@@ -1,0 +1,90 @@
+# CSK Innovate - Production Configuration
+# Domain: www.cskinnovate.com with automatic HTTPS
+
+www.cskinnovate.com {
+    # Reverse proxy for API - handle first
+    handle /api/* {
+        reverse_proxy localhost:3010
+    }
+    
+    # Static files and SPA routing
+    handle {
+        root * out
+        try_files {path} {path}/ /index.html
+        file_server
+    }
+    
+    # Enable gzip compression
+    encode gzip
+    
+    # Security headers
+    header {
+        # XSS Protection
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        
+        # HSTS - Force HTTPS
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        
+        # Remove Server header
+        -Server
+    }
+    
+    # Logging
+    log {
+        output stdout
+        format json
+        level INFO
+    }
+}
+
+# Redirect apex domain to www
+cskinnovate.com {
+    redir https://www.cskinnovate.com{uri} permanent
+}
+
+# ZenZero Biogas Site - Deploy Project
+www.zenzerobiogas.com {
+    # WebSocket endpoint for MQTT
+    handle_path /mqtt {
+        reverse_proxy localhost:8084 {
+            header_up Upgrade {http.request.header.Upgrade}
+            header_up Connection {http.request.header.Connection}
+        }
+    }
+
+    # API endpoint - reverse proxy to backend
+    handle /api/* {
+        reverse_proxy localhost:3001
+    }
+
+    # Frontend - reverse proxy to Docker container
+    handle {
+        reverse_proxy localhost:8888
+    }
+
+    # Enable gzip compression
+    encode gzip
+
+    # Security headers
+    header {
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+        -Server
+    }
+
+    # Logging
+    log {
+        output stdout
+        format json
+        level INFO
+    }
+}
+
+# Redirect non-www to www
+zenzerobiogas.com {
+    redir https://www.zenzerobiogas.com{uri} permanent
+}
