@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '',
-  assetPrefix: '',
+  basePath: '/csk-innovate',
+  assetPrefix: '/csk-innovate/',
   images: {
     unoptimized: true,
   },

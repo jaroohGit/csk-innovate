@@ -36,12 +36,6 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-      
-      - name: 📋 Ensure CNAME in output
-        run: |
-          if [ ! -f ./out/CNAME ]; then
-            echo "www.cskinnovate.com" > ./out/CNAME
-          fi
           
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
