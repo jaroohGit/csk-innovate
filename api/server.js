@@ -28,7 +28,7 @@ app.post('/api/chat', async (req, res) => {
     }
 
     // Call Ollama API
-    const response = await fetch('http://localhost:11434/api/chat', {
+    const response = await fetch('http://127.0.0.1:11434/api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
