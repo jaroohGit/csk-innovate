@@ -1,23 +1,32 @@
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
+const { getDatabaseContext } = require('./db-connector');
 const app = express();
 const PORT = 3010;
 
 app.use(cors());
 app.use(express.json());
 
-// System prompt สำหรับ CSK INNOVATE
-const SYSTEM_PROMPT = `You are Teddy, a helpful assistant for CSK INNOVATE - Industrial IIoT & AI Solutions company.
+// Groq API Configuration
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
+const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
-CSK INNOVATE provides:
-1. Industrial IIoT Platform - Real-time monitoring, MQTT protocol, Remote control
-2. AI Analytics & Prediction - Predictive maintenance, Process optimization, Machine Learning
-3. Smart Manufacturing Solutions - Digital transformation, Industry 4.0 implementation
-4. Success Stories - Wastewater treatment monitoring (BOD/COD/SS prediction), Food & beverage industry solutions
+// System prompt - Clear instruction to use provided data
+const SYSTEM_PROMPT = `You are Teddy, assistant for CSK INNOVATE (Industrial IoT and AI company).
 
-Contact: info@cskinnovate.com | www.cskinnovate.com
+CRITICAL: When user asks about system data, pH, temperature, flow rate, or sensor status, 
+you MUST use the "Current System Data" provided in the user message. 
+DO NOT say "I don't have real-time data" - the data IS provided to you.
 
-Keep answers concise, friendly, and professional. Mix Thai and English when appropriate.`;
+Answer in Thai or English based on user's language, short and clear.
+
+Services:
+1. IIoT Platform - Real-time monitoring 150,000 THB
+2. AI Analytics - Predictive Maintenance 200,000 THB
+3. Wastewater Treatment - pH BOD COD monitoring
+
+Contact: contact@cskinnovate.com`;
 
 app.post('/api/chat', async (req, res) => {
   try {
@@ -27,14 +36,27 @@ app.post('/api/chat', async (req, res) => {
       return res.status(400).json({ error: 'Message is required' });
     }
 
-    // Call Ollama API
-    const response = await fetch('http://127.0.0.1:11434/api/chat', {
+    console.log('📩 User message:', message);
+
+    // ดึงข้อมูลจาก database ตามคำถามของ user
+    const dbContext = await getDatabaseContext(message);
+    
+    // ใส่ข้อมูล database เข้าไปใน user message เพื่อให้ AI เห็นชัดเจน
+    let userMessage = message;
+    if (dbContext) {
+      userMessage = `USER QUESTION: ${message}\n\n=== REAL-TIME SYSTEM DATA FROM DATABASE ===\n${dbContext}\n\nIMPORTANT: Use the data above to answer. This is REAL data from our sensors, not hypothetical.`;
+      console.log('✅ Database context added');
+    }
+
+    // Call Groq API
+    const response = await fetch(GROQ_API_URL, {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${GROQ_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'tinyllama:latest',
+        model: 'llama-3.3-70b-versatile',
         messages: [
           {
             role: 'system',
@@ -42,23 +64,23 @@ app.post('/api/chat', async (req, res) => {
           },
           {
             role: 'user',
-            content: message,
+            content: userMessage,
           },
         ],
-        stream: false,
-        options: {
-          temperature: 0.7,
-          num_predict: 200, // Limit response length
-        },
+        temperature: 0.7,
+        max_tokens: 500,
       }),
     });
 
     if (!response.ok) {
-      throw new Error(`Ollama API error: ${response.statusText}`);
+      const error = await response.text();
+      throw new Error(`Groq API error: ${response.statusText} - ${error}`);
     }
 
     const data = await response.json();
-    const botMessage = data.message?.content || 'ขอโทษครับ ไม่สามารถตอบคำถามได้ในขณะนี้';
+    const botMessage = data.choices?.[0]?.message?.content || 'ขอโทษครับ ไม่สามารถตอบคำถามได้ในขณะนี้';
+
+    console.log('🤖 AI response:', botMessage.substring(0, 100) + '...');
 
     res.json({ message: botMessage });
   } catch (error) {
@@ -71,10 +93,14 @@ app.post('/api/chat', async (req, res) => {
 });
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', model: 'TinyLlama via Ollama' });
+  res.json({ status: 'ok', model: 'Llama 3.3 70B via Groq', database: 'TimescaleDB Connected' });
 });
 
 app.listen(PORT, () => {
   console.log(`🚀 Chat API server running on port ${PORT}`);
-  console.log(`💬 Using TinyLlama model via Ollama`);
+  console.log('💬 Using Llama 3.3 70B via Groq API');
+  console.log('🗄️ Database integration enabled (TimescaleDB)');
+  if (!GROQ_API_KEY) {
+    console.error('⚠️  WARNING: GROQ_API_KEY not found in environment!');
+  }
 });
