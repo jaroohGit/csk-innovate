@@ -19,12 +19,22 @@ export default function Navigation() {
   const padding = viewport.isFoldCover ? 'px-4' : viewport.isFoldInner ? 'px-6' : viewport.isMobile ? 'px-6' : 'px-8 lg:px-12';
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-background/80 backdrop-blur-lg border-b border-white/10' 
-        : 'bg-transparent'
-    }`}>
-      <div className={`w-full md:max-w-7xl md:mx-auto ${padding}`}>
+    <>
+      {/* Backdrop Overlay for Mobile Menu */}
+      {mobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 lg:hidden animate-fade-in"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-background/80 backdrop-blur-lg border-b border-white/10' 
+          : 'bg-transparent'
+      }`}>
+        <div className={`w-full md:max-w-7xl md:mx-auto ${padding}`}>
         <div className={`flex items-center justify-between ${navHeight}`}>
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -74,7 +84,7 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-6 animate-fade-in">
+          <div className="lg:hidden py-6 animate-fade-in bg-background/95 backdrop-blur-xl border-t border-white/10 shadow-2xl">
             <div className="flex flex-col space-y-2 px-4">
               <a 
                 href="#solutions" 
@@ -117,5 +127,6 @@ export default function Navigation() {
         )}
       </div>
     </nav>
+    </>
   );
 }
