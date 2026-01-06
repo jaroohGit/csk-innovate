@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0fb6d6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0b429;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Dashboard frame -->
+  <rect x="40" y="40" width="320" height="320" rx="20" fill="url(#grad3)" opacity="0.2"/>
+  <rect x="50" y="50" width="300" height="300" rx="15" fill="none" stroke="url(#grad3)" stroke-width="2"/>
+  <!-- Bar chart -->
+  <rect x="70" y="200" width="40" height="120" fill="url(#grad3)" opacity="0.7"/>
+  <rect x="120" y="160" width="40" height="160" fill="url(#grad3)" opacity="0.7"/>
+  <rect x="170" y="180" width="40" height="140" fill="url(#grad3)" opacity="0.7"/>
+  <rect x="220" y="140" width="40" height="180" fill="url(#grad3)" opacity="0.7"/>
+  <!-- Line graph -->
+  <polyline points="70,100 110,90 150,110 190,80 230,100 270,70 310,90" fill="none" stroke="#0fb6d6" stroke-width="4" opacity="0.8"/>
+  <circle cx="70" cy="100" r="6" fill="#0fb6d6"/>
+  <circle cx="110" cy="90" r="6" fill="#0fb6d6"/>
+  <circle cx="150" cy="110" r="6" fill="#0fb6d6"/>
+  <circle cx="190" cy="80" r="6" fill="#f0b429"/>
+  <circle cx="230" cy="100" r="6" fill="#f0b429"/>
+  <circle cx="270" cy="70" r="6" fill="#f0b429"/>
+  <circle cx="310" cy="90" r="6" fill="#f0b429"/>
+  <!-- Metrics boxes -->
+  <rect x="280" y="200" width="60" height="40" rx="5" fill="url(#grad3)" opacity="0.5"/>
+  <rect x="280" y="250" width="60" height="40" rx="5" fill="url(#grad3)" opacity="0.5"/>
+  <rect x="280" y="300" width="60" height="40" rx="5" fill="url(#grad3)" opacity="0.5"/>
+</svg>
