@@ -1,0 +1,77 @@
+name: Deploy CSK INNOVATE to Production
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up environment variables
+        run: |
+          echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+          echo "BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
+
+      - name: Build Next.js Web Image
+        run: |
+          cd $GITHUB_WORKSPACE
+          docker build \
+            -t csk-innovate-web:latest \
+            -t csk-innovate-web:${{ env.GITHUB_SHA_SHORT }} \
+            -f Dockerfile .
+
+      - name: Build API Image
+        run: |
+          cd $GITHUB_WORKSPACE/api
+          docker build \
+            -t csk-innovate-api:latest \
+            -t csk-innovate-api:${{ env.GITHUB_SHA_SHORT }} \
+            -f Dockerfile .
+
+      - name: Stop old containers
+        run: |
+          cd /opt/apps/csk-innovate
+          docker compose -f docker-compose.prod.yml down || true
+
+      - name: Copy new docker-compose file
+        run: |
+          mkdir -p /opt/apps/csk-innovate
+          cp $GITHUB_WORKSPACE/docker-compose.prod.yml /opt/apps/csk-innovate/
+          cp $GITHUB_WORKSPACE/.env.local /opt/apps/csk-innovate/ || echo ".env.local not found"
+          cp $GITHUB_WORKSPACE/api/.env /opt/apps/csk-innovate/api.env || echo "api/.env not found"
+
+      - name: Deploy with Docker Compose
+        run: |
+          cd /opt/apps/csk-innovate
+          docker compose -f docker-compose.prod.yml up -d
+
+      - name: Clean up old images
+        run: |
+          docker image prune -f
+          # Keep last 3 tagged images
+          docker images csk-innovate-web --format "{{.ID}} {{.Tag}}" | grep -v latest | tail -n +4 | awk '{print $1}' | xargs -r docker rmi || true
+          docker images csk-innovate-api --format "{{.ID}} {{.Tag}}" | grep -v latest | tail -n +4 | awk '{print $1}' | xargs -r docker rmi || true
+
+      - name: Health Check
+        run: |
+          sleep 10
+          curl -f http://localhost:3000 || exit 1
+          curl -f http://localhost:3010/api/health || exit 1
+          echo "✅ Deployment successful!"
+
+      - name: Notify deployment status
+        if: always()
+        run: |
+          if [ ${{ job.status }} == 'success' ]; then
+            echo "🚀 CSK INNOVATE deployed successfully at $(date)"
+            echo "   Commit: ${{ env.GITHUB_SHA_SHORT }}"
+            echo "   URL: https://www.cskinnovate.com"
+          else
+            echo "❌ Deployment failed!"
+          fi
