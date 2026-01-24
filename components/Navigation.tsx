@@ -57,6 +57,9 @@ export default function Navigation() {
             <a href="#contact" className="px-4 py-2 text-gray-300 hover:text-accent transition-colors">
               Contact
             </a>
+            <a href="/wwt-report" className="px-4 py-2 text-gray-300 hover:text-accent transition-colors">
+              WWT Report
+            </a>
             <div className="ml-4 flex items-center gap-3">
               <a 
                 href="/login" 
@@ -119,6 +122,13 @@ export default function Navigation() {
                 className="px-4 py-3 text-gray-300 hover:text-accent transition-all"
               >
                 Contact
+              </a>
+              <a 
+                href="/wwt-report" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-4 py-3 text-gray-300 hover:text-accent transition-all"
+              >
+                WWT Report
               </a>
               <div className="pt-4 space-y-3">
                 <a 

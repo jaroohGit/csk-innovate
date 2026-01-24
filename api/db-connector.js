@@ -2,14 +2,20 @@ const { Pool } = require('pg');
 
 // เชื่อมต่อกับ TimescaleDB จาก deploy project
 const pool = new Pool({
-  host: 'localhost',
-  database: 'wwt_data',
-  user: 'postgres',
-  password: 'postgres',
-  port: 5436,
+  host: process.env.DB_HOST || 'localhost',
+  database: process.env.DB_NAME || 'wwt_data',
+  user: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASSWORD || 'postgres',
+  port: parseInt(process.env.DB_PORT) || 5436,
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 10000,
+});
+
+console.log('🔧 Database Config:', {
+  host: process.env.DB_HOST || 'localhost',
+  database: process.env.DB_NAME || 'wwt_data',
+  port: process.env.DB_PORT || 5436
 });
 
 // Test connection on startup
