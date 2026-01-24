@@ -3,6 +3,10 @@ const { pool } = require('./db-connector');
 // Mock data mode for development/testing when DB is not available
 const MOCK_MODE = process.env.MOCK_DATA === 'true' || false;
 
+// Energy calculation constants
+const FLOW_TO_M3_CONVERSION = 0.001; // L/min to m3/min
+const M3_TO_KWH_FACTOR = 0.5; // kWh per m3 (pump energy consumption)
+
 if (MOCK_MODE) {
   console.log('🎭 WWT API running in MOCK DATA mode');
 } else {
@@ -36,15 +40,15 @@ async function getDailyEnergy(days = 7) {
     const result = await pool.query(`
       SELECT 
         DATE(time) as date,
-        ROUND(SUM(flow_meter_no1_realtime * 0.001)::numeric, 2) as total_flow_m3,
-        ROUND((SUM(flow_meter_no1_realtime * 0.001) * 0.5)::numeric, 2) as energy_kwh,
+        ROUND(SUM(flow_meter_no1_realtime * $1)::numeric, 2) as total_flow_m3,
+        ROUND((SUM(flow_meter_no1_realtime * $1) * $2)::numeric, 2) as energy_kwh,
         COUNT(*) as readings_count,
         ROUND(AVG(flow_meter_no1_realtime)::numeric, 2) as avg_flow_rate
       FROM wwt01_data
-      WHERE time > NOW() - INTERVAL '${days} days'
+      WHERE time > NOW() - INTERVAL '1 day' * $3
       GROUP BY DATE(time)
       ORDER BY date DESC
-    `);
+    `, [FLOW_TO_M3_CONVERSION, M3_TO_KWH_FACTOR, days]);
     
     return result.rows;
   } catch (error) {
@@ -76,12 +80,12 @@ async function getWaterVolume(hours = 24) {
       SELECT 
         time,
         ROUND(flow_meter_no1_realtime::numeric, 2) as flow_rate,
-        ROUND((flow_meter_no1_realtime * 0.001)::numeric, 3) as volume_m3_per_min
+        ROUND((flow_meter_no1_realtime * $1)::numeric, 3) as volume_m3_per_min
       FROM wwt01_data
-      WHERE time > NOW() - INTERVAL '${hours} hours'
+      WHERE time > NOW() - INTERVAL '1 hour' * $2
       ORDER BY time DESC
       LIMIT 100
-    `);
+    `, [FLOW_TO_M3_CONVERSION, hours]);
     
     return result.rows;
   } catch (error) {
@@ -111,11 +115,11 @@ async function getRealtimeWWTData() {
         ROUND(ph_sensor_01::numeric, 2) as ph,
         ROUND(temp_01::numeric, 2) as temperature,
         ROUND(flow_meter_no1_realtime::numeric, 2) as flow_rate,
-        ROUND((flow_meter_no1_realtime * 0.001 * 0.5)::numeric, 3) as instant_power_kw
+        ROUND((flow_meter_no1_realtime * $1 * $2)::numeric, 3) as instant_power_kw
       FROM wwt01_data
       ORDER BY time DESC
       LIMIT 1
-    `);
+    `, [FLOW_TO_M3_CONVERSION, M3_TO_KWH_FACTOR]);
     
     if (result.rows.length === 0) {
       return null;
@@ -156,13 +160,13 @@ async function getHourlyData(hours = 24) {
         ROUND(AVG(ph_sensor_01)::numeric, 2) as avg_ph,
         ROUND(AVG(temp_01)::numeric, 2) as avg_temp,
         ROUND(AVG(flow_meter_no1_realtime)::numeric, 2) as avg_flow,
-        ROUND(SUM(flow_meter_no1_realtime * 0.001 * 0.5)::numeric, 2) as energy_kwh,
+        ROUND(SUM(flow_meter_no1_realtime * $1 * $2)::numeric, 2) as energy_kwh,
         COUNT(*) as sample_count
       FROM wwt01_data
-      WHERE time > NOW() - INTERVAL '${hours} hours'
+      WHERE time > NOW() - INTERVAL '1 hour' * $3
       GROUP BY DATE_TRUNC('hour', time)
       ORDER BY hour DESC
-    `);
+    `, [FLOW_TO_M3_CONVERSION, M3_TO_KWH_FACTOR, hours]);
     
     return result.rows;
   } catch (error) {
@@ -230,12 +234,12 @@ async function getWWTSummary() {
         ROUND(AVG(ph_sensor_01)::numeric, 2) as avg_ph_24h,
         ROUND(AVG(temp_01)::numeric, 2) as avg_temp_24h,
         ROUND(AVG(flow_meter_no1_realtime)::numeric, 2) as avg_flow_24h,
-        ROUND(SUM(flow_meter_no1_realtime * 0.001 * 0.5)::numeric, 2) as total_energy_24h_kwh,
+        ROUND(SUM(flow_meter_no1_realtime * $1 * $2)::numeric, 2) as total_energy_24h_kwh,
         MIN(ph_sensor_01) as min_ph_24h,
         MAX(ph_sensor_01) as max_ph_24h
       FROM wwt01_data
       WHERE time > NOW() - INTERVAL '24 hours'
-    `);
+    `, [FLOW_TO_M3_CONVERSION, M3_TO_KWH_FACTOR]);
     
     return {
       realtime: realtime,

@@ -4,6 +4,15 @@ import { useEffect, useState } from 'react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { format } from 'date-fns';
 
+// API base URL - uses environment variable or defaults to localhost
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3010';
+
+// Utility function for safe number formatting
+const formatNumber = (value: string | number | undefined | null, decimals: number = 2): string => {
+  if (value === null || value === undefined) return 'N/A';
+  return Number(value).toFixed(decimals);
+};
+
 interface RealtimeData {
   time: string;
   ph: number;
@@ -55,20 +64,20 @@ export default function WWTReportPage() {
         setError(null);
 
         // Fetch summary data
-        const summaryRes = await fetch('http://localhost:3010/api/wwt/summary');
+        const summaryRes = await fetch(`${API_BASE_URL}/api/wwt/summary`);
         if (!summaryRes.ok) throw new Error('Failed to fetch summary');
         const summaryData = await summaryRes.json();
         setRealtimeData(summaryData.realtime);
         setSummary24h(summaryData.summary_24h);
 
         // Fetch daily energy data
-        const energyRes = await fetch('http://localhost:3010/api/wwt/energy/daily?days=7');
+        const energyRes = await fetch(`${API_BASE_URL}/api/wwt/energy/daily?days=7`);
         if (!energyRes.ok) throw new Error('Failed to fetch energy data');
         const energyData = await energyRes.json();
         setDailyEnergy(energyData);
 
         // Fetch hourly data
-        const hourlyRes = await fetch('http://localhost:3010/api/wwt/hourly?hours=24');
+        const hourlyRes = await fetch(`${API_BASE_URL}/api/wwt/hourly?hours=24`);
         if (!hourlyRes.ok) throw new Error('Failed to fetch hourly data');
         const hourlyData = await hourlyRes.json();
         setHourlyData(hourlyData);
@@ -130,7 +139,7 @@ export default function WWTReportPage() {
               <div>
                 <p className="text-gray-500 text-sm">pH Level</p>
                 <p className="text-3xl font-bold text-blue-600">
-                  {realtimeData?.ph ? Number(realtimeData.ph).toFixed(2) : 'N/A'}
+                  {formatNumber(realtimeData?.ph)}
                 </p>
                 <p className="text-xs text-gray-400 mt-1">
                   {realtimeData?.time && format(new Date(realtimeData.time), 'HH:mm:ss')}
@@ -145,7 +154,7 @@ export default function WWTReportPage() {
               <div>
                 <p className="text-gray-500 text-sm">Temperature</p>
                 <p className="text-3xl font-bold text-orange-600">
-                  {realtimeData?.temperature ? Number(realtimeData.temperature).toFixed(1) : 'N/A'}°C
+                  {formatNumber(realtimeData?.temperature, 1)}°C
                 </p>
                 <p className="text-xs text-gray-400 mt-1">
                   {realtimeData?.time && format(new Date(realtimeData.time), 'HH:mm:ss')}
@@ -160,7 +169,7 @@ export default function WWTReportPage() {
               <div>
                 <p className="text-gray-500 text-sm">Flow Rate</p>
                 <p className="text-3xl font-bold text-green-600">
-                  {realtimeData?.flow_rate ? Number(realtimeData.flow_rate).toFixed(1) : 'N/A'}
+                  {formatNumber(realtimeData?.flow_rate, 1)}
                 </p>
                 <p className="text-xs text-gray-400 mt-1">L/min</p>
               </div>
@@ -173,7 +182,7 @@ export default function WWTReportPage() {
               <div>
                 <p className="text-gray-500 text-sm">Power</p>
                 <p className="text-3xl font-bold text-purple-600">
-                  {realtimeData?.instant_power_kw ? Number(realtimeData.instant_power_kw).toFixed(3) : 'N/A'}
+                  {formatNumber(realtimeData?.instant_power_kw, 3)}
                 </p>
                 <p className="text-xs text-gray-400 mt-1">kW</p>
               </div>
@@ -190,25 +199,25 @@ export default function WWTReportPage() {
               <div>
                 <p className="text-gray-500 text-sm">Total Energy</p>
                 <p className="text-2xl font-bold text-yellow-600">
-                  {summary24h.total_energy_24h_kwh ? Number(summary24h.total_energy_24h_kwh).toFixed(2) : '0.00'} kWh
+                  {formatNumber(summary24h.total_energy_24h_kwh)} kWh
                 </p>
               </div>
               <div>
                 <p className="text-gray-500 text-sm">Avg pH</p>
                 <p className="text-2xl font-bold text-blue-600">
-                  {summary24h.avg_ph_24h ? Number(summary24h.avg_ph_24h).toFixed(2) : 'N/A'}
+                  {formatNumber(summary24h.avg_ph_24h)}
                 </p>
               </div>
               <div>
                 <p className="text-gray-500 text-sm">Avg Temperature</p>
                 <p className="text-2xl font-bold text-orange-600">
-                  {summary24h.avg_temp_24h ? Number(summary24h.avg_temp_24h).toFixed(1) : 'N/A'}°C
+                  {formatNumber(summary24h.avg_temp_24h, 1)}°C
                 </p>
               </div>
               <div>
                 <p className="text-gray-500 text-sm">Avg Flow</p>
                 <p className="text-2xl font-bold text-green-600">
-                  {summary24h.avg_flow_24h ? Number(summary24h.avg_flow_24h).toFixed(1) : 'N/A'} L/min
+                  {formatNumber(summary24h.avg_flow_24h, 1)} L/min
                 </p>
               </div>
             </div>
