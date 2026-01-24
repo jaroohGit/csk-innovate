@@ -130,7 +130,7 @@ export default function WWTReportPage() {
               <div>
                 <p className="text-gray-500 text-sm">pH Level</p>
                 <p className="text-3xl font-bold text-blue-600">
-                  {realtimeData?.ph?.toFixed(2) || 'N/A'}
+                  {realtimeData?.ph ? Number(realtimeData.ph).toFixed(2) : 'N/A'}
                 </p>
                 <p className="text-xs text-gray-400 mt-1">
                   {realtimeData?.time && format(new Date(realtimeData.time), 'HH:mm:ss')}
@@ -145,7 +145,7 @@ export default function WWTReportPage() {
               <div>
                 <p className="text-gray-500 text-sm">Temperature</p>
                 <p className="text-3xl font-bold text-orange-600">
-                  {realtimeData?.temperature?.toFixed(1) || 'N/A'}°C
+                  {realtimeData?.temperature ? Number(realtimeData.temperature).toFixed(1) : 'N/A'}°C
                 </p>
                 <p className="text-xs text-gray-400 mt-1">
                   {realtimeData?.time && format(new Date(realtimeData.time), 'HH:mm:ss')}
@@ -160,7 +160,7 @@ export default function WWTReportPage() {
               <div>
                 <p className="text-gray-500 text-sm">Flow Rate</p>
                 <p className="text-3xl font-bold text-green-600">
-                  {realtimeData?.flow_rate?.toFixed(1) || 'N/A'}
+                  {realtimeData?.flow_rate ? Number(realtimeData.flow_rate).toFixed(1) : 'N/A'}
                 </p>
                 <p className="text-xs text-gray-400 mt-1">L/min</p>
               </div>
@@ -173,7 +173,7 @@ export default function WWTReportPage() {
               <div>
                 <p className="text-gray-500 text-sm">Power</p>
                 <p className="text-3xl font-bold text-purple-600">
-                  {realtimeData?.instant_power_kw?.toFixed(3) || 'N/A'}
+                  {realtimeData?.instant_power_kw ? Number(realtimeData.instant_power_kw).toFixed(3) : 'N/A'}
                 </p>
                 <p className="text-xs text-gray-400 mt-1">kW</p>
               </div>
@@ -190,25 +190,25 @@ export default function WWTReportPage() {
               <div>
                 <p className="text-gray-500 text-sm">Total Energy</p>
                 <p className="text-2xl font-bold text-yellow-600">
-                  {summary24h.total_energy_24h_kwh?.toFixed(2) || '0.00'} kWh
+                  {summary24h.total_energy_24h_kwh ? Number(summary24h.total_energy_24h_kwh).toFixed(2) : '0.00'} kWh
                 </p>
               </div>
               <div>
                 <p className="text-gray-500 text-sm">Avg pH</p>
                 <p className="text-2xl font-bold text-blue-600">
-                  {summary24h.avg_ph_24h?.toFixed(2) || 'N/A'}
+                  {summary24h.avg_ph_24h ? Number(summary24h.avg_ph_24h).toFixed(2) : 'N/A'}
                 </p>
               </div>
               <div>
                 <p className="text-gray-500 text-sm">Avg Temperature</p>
                 <p className="text-2xl font-bold text-orange-600">
-                  {summary24h.avg_temp_24h?.toFixed(1) || 'N/A'}°C
+                  {summary24h.avg_temp_24h ? Number(summary24h.avg_temp_24h).toFixed(1) : 'N/A'}°C
                 </p>
               </div>
               <div>
                 <p className="text-gray-500 text-sm">Avg Flow</p>
                 <p className="text-2xl font-bold text-green-600">
-                  {summary24h.avg_flow_24h?.toFixed(1) || 'N/A'} L/min
+                  {summary24h.avg_flow_24h ? Number(summary24h.avg_flow_24h).toFixed(1) : 'N/A'} L/min
                 </p>
               </div>
             </div>
