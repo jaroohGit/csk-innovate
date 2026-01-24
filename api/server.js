@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 const { getDatabaseContext } = require('./db-connector');
 const healthRouter = require('./health');
+const wwtApi = require('./wwt-api');
 const app = express();
 const PORT = 3010;
 
@@ -106,6 +107,60 @@ app.post('/api/chat', async (req, res) => {
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', model: 'Llama 3.3 70B via Groq', database: 'TimescaleDB Connected' });
+});
+
+// WWT Dashboard API Endpoints
+app.get('/api/wwt/summary', async (req, res) => {
+  try {
+    const summary = await wwtApi.getWWTSummary();
+    res.json(summary);
+  } catch (error) {
+    console.error('Error fetching WWT summary:', error);
+    res.status(500).json({ error: 'Failed to fetch WWT summary' });
+  }
+});
+
+app.get('/api/wwt/energy/daily', async (req, res) => {
+  try {
+    const days = parseInt(req.query.days) || 7;
+    const data = await wwtApi.getDailyEnergy(days);
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching daily energy:', error);
+    res.status(500).json({ error: 'Failed to fetch daily energy data' });
+  }
+});
+
+app.get('/api/wwt/volume', async (req, res) => {
+  try {
+    const hours = parseInt(req.query.hours) || 24;
+    const data = await wwtApi.getWaterVolume(hours);
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching water volume:', error);
+    res.status(500).json({ error: 'Failed to fetch water volume data' });
+  }
+});
+
+app.get('/api/wwt/hourly', async (req, res) => {
+  try {
+    const hours = parseInt(req.query.hours) || 24;
+    const data = await wwtApi.getHourlyData(hours);
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching hourly data:', error);
+    res.status(500).json({ error: 'Failed to fetch hourly data' });
+  }
+});
+
+app.get('/api/wwt/columns', async (req, res) => {
+  try {
+    const columns = await wwtApi.getAvailableColumns();
+    res.json(columns);
+  } catch (error) {
+    console.error('Error fetching columns:', error);
+    res.status(500).json({ error: 'Failed to fetch columns' });
+  }
 });
 
 app.listen(PORT, () => {
