@@ -27,15 +27,19 @@ services:
       - api/.env
     environment:
       - NODE_ENV=production
-      - DB_HOST=host.docker.internal
-      - DB_PORT=5436
+      - DB_HOST=deploy-timescaledb
+      - DB_PORT=5432
+      - DB_NAME=wwt_data
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
     ports:
       - "127.0.0.1:3010:3010"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     networks:
       - csk-network
+      - deploy_deploy-network
 
 networks:
   csk-network:
     driver: bridge
+  deploy_deploy-network:
+    external: true
