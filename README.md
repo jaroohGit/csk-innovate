@@ -1,2 +1,2 @@
-# velzon-default-vue
-Velzon Vue Admin Default Version
+# CSK-INNOVATE-default-vue
+CSK-INNOVATE Vue Admin Default Version

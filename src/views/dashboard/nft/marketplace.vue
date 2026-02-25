@@ -188,7 +188,7 @@ export default {
           <div class="border-start p-4 h-100 d-flex flex-column">
             <div class="w-100">
               <div class="d-flex align-items-center">
-                <img src="https://img.themesbrand.com/velzon/images/img-2.gif"
+                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-2.gif"
                   class="img-fluid avatar-xs rounded-circle object-fit-cover" alt="" />
                 <div class="ms-3 flex-grow-1">
                   <h5 class="fs-16 mb-1 fw-bold">Trendy Fashion Portraits</h5>

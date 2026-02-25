@@ -39,7 +39,7 @@ export default {
     <l-marker :lat-lng="circle.center"></l-marker>
     <l-marker :lat-lng="[47.41322, -1.189482]">
       <l-icon :icon-anchor="staticAnchor">
-        <img src="@/assets/images/logo-dark.png" height="25" />
+        <span class="logo-text" style="--logo-text-size: 30px;">ZENZERO</span>
        <!-- <img src="@/assets/images/leaflet/marker-icon.png" />   --> 
       </l-icon>
     </l-marker>

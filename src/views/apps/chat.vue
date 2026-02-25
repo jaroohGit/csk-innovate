@@ -707,7 +707,7 @@ export default {
                 </div>
                 <div class="flex-grow-1 overflow-hidden">
                   <h5 class="fs-13 mb-1">
-                    <BLink href="#" class="text-body text-truncate d-block">Velzon admin.ppt</BLink>
+                    <BLink href="#" class="text-body text-truncate d-block">CSK-INNOVATE admin.ppt</BLink>
                   </h5>
                   <div class="text-muted">2.4MB</div>
                 </div>

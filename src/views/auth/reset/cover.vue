@@ -45,7 +45,7 @@ export default {
                                         <div class="position-relative h-100 d-flex flex-column">
                                             <div class="mb-4">
                                                 <router-link to="/" class="d-block">
-                                                    <img src="@/assets/images/logo-light.png" alt="" height="18">
+                                                    <span class="logo-text" style="--logo-text-size: 22px;">ZENZERO</span>
                                                 </router-link>
                                             </div>
                                             <div class="mt-auto">
@@ -88,7 +88,7 @@ export default {
                                 <BCol lg="6">
                                     <div class="p-lg-5 p-4">
                                         <h5 class="text-primary">Forgot Password?</h5>
-                                        <p class="text-muted">Reset password with velzon</p>
+                                        <p class="text-muted">Reset password with CSK-INNOVATE</p>
 
                                         <div class="mt-2 text-center">
                                             <lottie class="avatar-xl" colors="primary:#0ab39c,secondary:#405189"
@@ -135,7 +135,7 @@ export default {
                 <BRow>
                     <BCol lg="12">
                         <div class="text-center">
-                            <p class="mb-0">&copy; {{ new Date().getFullYear() }} Velzon. Crafted with <i
+                            <p class="mb-0">&copy; {{ new Date().getFullYear() }} CSK-INNOVATE. Crafted with <i
                                     class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
                         </div>
                     </BCol>

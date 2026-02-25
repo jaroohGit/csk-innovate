@@ -154,7 +154,7 @@ export default {
                 </span>
               </div>
               <input type="text" class="form-control" id="websiteInput" placeholder="www.example.com"
-                value="www.velzon.com" />
+                value="www.CSK-INNOVATE.com" />
             </div>
             <div class="mb-3 d-flex">
               <div class="avatar-xs d-block flex-shrink-0 me-3">
@@ -207,7 +207,7 @@ export default {
                       <div class="mb-3">
                         <label for="emailInput" class="form-label">Email Address</label>
                         <input type="email" class="form-control" id="emailInput" placeholder="Enter your email"
-                          value="daveadame@velzon.com" />
+                          value="daveadame@CSK-INNOVATE.com" />
                       </div>
                     </BCol>
                     <BCol lg="12">
@@ -244,7 +244,7 @@ export default {
                       <div class="mb-3">
                         <label for="websiteInput1" class="form-label">Website</label>
                         <input type="text" class="form-control" id="websiteInput1" placeholder="www.example.com"
-                          value="www.velzon.com" />
+                          value="www.CSK-INNOVATE.com" />
                       </div>
                     </BCol>
                     <BCol lg="4">

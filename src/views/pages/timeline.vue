@@ -88,7 +88,7 @@ export default {
                             <div class="date">10 Jul 2021</div>
                             <div class="content">
                                 <h5>Create new project Building product</h5>
-                                <p class="text-muted">Every team project can have a velzon. Use the velzon to share
+                                <p class="text-muted">Every team project can have a CSK-INNOVATE. Use the CSK-INNOVATE to share
                                     information with your team to understand and contribute to your project.</p>
                                 <div class="avatar-group mb-2">
                                     <BLink href="javascript: void(0);" class="avatar-group-item" v-b-tooltip.hover title="Christi">
@@ -138,7 +138,7 @@ export default {
                             <i class="icon ri-user-smile-line"></i>
                             <div class="date">10 Feb 2021</div>
                             <div class="content">
-                                <h5>Velzon admin dashboard templates layout upload</h5>
+                                <h5>CSK-INNOVATE admin dashboard templates layout upload</h5>
                                 <p class="text-muted">Powerful, clean & modern responsive bootstrap 5 admin template.
                                     The maximum file size for uploads in this demo :</p>
                                 <BRow class="border border-dashed rounded gx-2 p-2">
@@ -269,7 +269,7 @@ export default {
                                 <BCol cols="12">
                                     <div class="timeline-box">
                                         <div class="timeline-text">
-                                            <h5>Velzon - Project Discussion</h5>
+                                            <h5>CSK-INNOVATE - Project Discussion</h5>
                                             <p class="text-muted mb-0">The purpose of the discussion is to interpret and
                                                 describe the significance of your findings in light of what was already
                                                 known about the research problem being investigated, and to explain any

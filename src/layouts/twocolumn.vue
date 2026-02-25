@@ -279,21 +279,13 @@ export default {
         <div class="navbar-brand-box">
           <!-- Dark Logo-->
           <router-link to="/" class="logo logo-dark">
-            <span class="logo-sm">
-              <img src="@/assets/images/logo-sm.png" alt="" height="22" />
-            </span>
-            <span class="logo-lg">
-              <img src="@/assets/images/logo-dark.png" alt="" height="17" />
-            </span>
+            <span class="logo-sm logo-text" style="--logo-text-size: 26px;">ZENZERO</span>
+            <span class="logo-lg logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
           </router-link>
           <!-- Light Logo-->
           <router-link to="/" class="logo logo-light">
-            <span class="logo-sm">
-              <img src="@/assets/images/logo-sm.png" alt="" height="22" />
-            </span>
-            <span class="logo-lg">
-              <img src="@/assets/images/logo-light.png" alt="" height="17" />
-            </span>
+            <span class="logo-sm logo-text" style="--logo-text-size: 26px;">ZENZERO</span>
+            <span class="logo-lg logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
           </router-link>
           <BButton variant="link" size="sm" class="p-0 fs-20 header-item float-end btn-vertical-sm-hover"
             id="vertical-hover">
@@ -305,7 +297,7 @@ export default {
           <BContainer fluid>
             <div id="two-column-menu">
               <simplebar class="twocolumn-iconview list-unstyled">
-                <BLink class="logo"><img src="@/assets/images/logo-sm.png" alt="Logo" height="22" /></BLink>
+                <BLink class="logo"><span class="logo-text" style="--logo-text-size: 26px;">ZENZERO</span></BLink>
                 <li>
                   <BLink href="#sidebarDashboards" class="nav-icon" role="button"
                     @click.prevent="updateMenu('sidebarDashboards', $event)">

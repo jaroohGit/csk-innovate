@@ -14,7 +14,7 @@ export default {
                         <Bcard no-body class="card overflow-hidden">
                             <BCardBody class="p-4">
                                 <div class="text-center">
-                                    <img src="https://img.themesbrand.com/velzon/images/auth-offline.gif" alt=""
+                                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/auth-offline.gif" alt=""
                                         height="210">
                                     <h3 class="mt-4 fw-semibold">We're currently offline</h3>
                                     <p class="text-muted mb-4 fs-14">We can't show you this images because you aren't

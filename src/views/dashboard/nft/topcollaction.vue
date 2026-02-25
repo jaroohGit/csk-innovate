@@ -74,7 +74,7 @@ export default {
                         </swiper-slide>
                         <swiper-slide>
                             <div class="dash-collection overflow-hidden rounded-top position-relative">
-                                <img src="https://img.themesbrand.com/velzon/images/img-5.gif" alt="" height="220"
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif" alt="" height="220"
                                     class="object-fit-cover w-100" />
                                 <div
                                     class="content position-absolute bottom-0 m-2 p-2 start-0 end-0 rounded d-flex align-items-center">

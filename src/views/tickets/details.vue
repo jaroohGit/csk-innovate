@@ -250,7 +250,7 @@ userIdx: {}
                                     </tr>
                                     <tr>
                                         <td class="fw-medium">Project</td>
-                                        <td>Velzon - Admin Dashboard</td>
+                                        <td>CSK-INNOVATE - Admin Dashboard</td>
                                     </tr>
                                     <tr>
                                         <td class="fw-medium">Assigned To:</td>
@@ -344,7 +344,7 @@ userIdx: {}
                             </div>
                             <div class="flex-grow-1 ms-3">
                                 <h6 class="mb-1">
-                                    <BLink href="javascript:void(0);">Velzon-admin.zip</BLink>
+                                    <BLink href="javascript:void(0);">CSK-INNOVATE-admin.zip</BLink>
                                 </h6>
                                 <small class="text-muted">3.2 MB</small>
                             </div>
@@ -363,7 +363,7 @@ userIdx: {}
                             </div>
                             <div class="flex-grow-1 ms-3">
                                 <h6 class="mb-1">
-                                    <BLink href="javascript:void(0);">Velzon-admin.ppt</BLink>
+                                    <BLink href="javascript:void(0);">CSK-INNOVATE-admin.ppt</BLink>
                                 </h6>
                                 <small class="text-muted">4.5 MB</small>
                             </div>

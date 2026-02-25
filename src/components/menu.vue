@@ -224,8 +224,127 @@ export default {
     <template v-if="layoutType === 'vertical' || layoutType === 'semibox'">
       <ul class="navbar-nav h-100" id="navbar-nav">
         <li class="menu-title">
-          <span data-key="t-menu"> {{ $t("t-menu") }}</span>
+          <span data-key="t-menu">Overview</span>
         </li>
+
+        <!-- Dashboard Menu Item -->
+        <li class="nav-item">
+          <router-link :to="{ name: 'overview-dashboard' }" class="nav-link menu-link">
+            <i class="ri-dashboard-2-line"></i>
+            <span data-key="t-dashboard">Dashboard</span>
+          </router-link>
+        </li>
+
+        <!-- PROJECTS Menu Header -->
+        <li class="menu-title">
+          <span data-key="t-projects-header">PROJECTS</span>
+        </li>
+
+        <!-- KM30 Project Menu -->
+        <li class="nav-item">
+          <BLink class="nav-link menu-link" href="#sidebarKM30" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarKM30">
+            <i class="ri-pages-line"></i>
+          </BLink>
+          <div class="collapse menu-dropdown" id="sidebarKM30">
+            <ul class="nav nav-sm flex-column">
+              <!-- Daily Report -->
+              <li class="nav-item">
+                <BLink class="nav-link" href="#sidebarDailyReport" data-bs-toggle="collapse" role="button" 
+                  aria-expanded="false" aria-controls="sidebarDailyReport">
+                  Daily Report
+                </BLink>
+                <div class="collapse menu-dropdown" id="sidebarDailyReport">
+                  <ul class="nav nav-sm flex-column">
+                    <li class="nav-item">
+                        ORP-pH
+                      </router-link>
+                    </li>
+                    <li class="nav-item">
+                        Flow
+                      </router-link>
+                    </li>
+                    <li class="nav-item">
+                        Energy
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- Real-time Monitoring -->
+              <li class="nav-item">
+                <BLink class="nav-link" href="#sidebarRealtime" data-bs-toggle="collapse" role="button" 
+                  aria-expanded="false" aria-controls="sidebarRealtime">
+                  Real-time Monitoring
+                </BLink>
+                <div class="collapse menu-dropdown" id="sidebarRealtime">
+                  <ul class="nav nav-sm flex-column">
+                    <li class="nav-item">
+                        AT1
+                      </router-link>
+                    </li>
+                    <li class="nav-item">
+                        SBR (AT-02)
+                      </router-link>
+                    </li>
+                    <li class="nav-item">
+                        AT3
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- Historical Data -->
+              <li class="nav-item">
+                <BLink class="nav-link" href="#sidebarHistorical" data-bs-toggle="collapse" role="button" 
+                  aria-expanded="false" aria-controls="sidebarHistorical">
+                  Historical Data
+                </BLink>
+                <div class="collapse menu-dropdown" id="sidebarHistorical">
+                  <ul class="nav nav-sm flex-column">
+                    <li class="nav-item">
+                        AT1
+                      </router-link>
+                    </li>
+                    <li class="nav-item">
+                        SBR (AT-02)
+                      </router-link>
+                    </li>
+                    <li class="nav-item">
+                        AT3
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- Data Analysis -->
+              <li class="nav-item">
+                <BLink class="nav-link" href="#sidebarDataAnalysis" data-bs-toggle="collapse" role="button" 
+                  aria-expanded="false" aria-controls="sidebarDataAnalysis">
+                  Data Analysis
+                </BLink>
+                <div class="collapse menu-dropdown" id="sidebarDataAnalysis">
+                  <ul class="nav nav-sm flex-column">
+                    <li class="nav-item">
+                        ML: Machine Learning
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- End KM30 Menu -->
+
+        <!-- DEMO Section Header -->
+        <li class="menu-title">
+          <span data-key="t-demo-header">DEMO COMPONENTS</span>
+        </li>
+
         <li class="nav-item">
           <BLink class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button"
             aria-expanded="false" aria-controls="sidebarDashboards">

@@ -60,11 +60,94 @@ export default [
     path: "/",
     name: "default",
     meta: {
+      title: "CSK-INNOVATE IoT Platform",
+    },
+    component: () => import("../views/landing/index.vue"),
+  },
+  // Overview Dashboard
+  {
+    path: "/overview/dashboard",
+    name: "overview-dashboard",
+    meta: {
       title: "Dashboard",
       authRequired: true,
     },
-    component: () => import("../views/dashboard/ecommerce/index.vue"),
+    component: () => import("../views/overview/dashboard.vue"),
   },
+  // KM30 Project Routes
+  {
+    meta: {
+      title: "ORP-pH Daily Report",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "Flow Daily Report",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "Energy Daily Report",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "AT1 Real-time Monitoring",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "AT2 Real-time Monitoring (SBR)",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "AT3 Real-time Monitoring",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "Test Connection & Debug",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "AT3 Real-time Monitoring",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "AT1 Historical Data",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "AT-02 (SBR) Historical Data",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "AT3 Historical Data",
+      authRequired: true,
+    },
+  },
+  {
+    meta: {
+      title: "Machine Learning Data Analysis",
+      authRequired: true,
+    },
+  },
+  // End KM30 Routes
   {
     path: "/dashboard/crypto",
     name: "dashboard-crypto",

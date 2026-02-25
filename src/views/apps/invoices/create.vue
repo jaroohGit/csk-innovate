@@ -324,10 +324,10 @@ export default {
                       <span
                         class="overflow-hidden border border-dashed d-flex align-items-center justify-content-center rounded"
                         style="height: 60px; width: 256px">
-                        <img src="@/assets/images/logo-dark.png"
-                          class="card-logo card-logo-dark user-profile-image img-fluid" alt="logo dark" />
-                        <img src="@/assets/images/logo-light.png"
-                          class="card-logo card-logo-light user-profile-image img-fluid" alt="logo light" />
+                        <span class="card-logo card-logo-dark logo-text user-profile-image"
+                          style="--logo-text-size: 30px;">ZENZERO</span>
+                        <span class="card-logo card-logo-light logo-text user-profile-image"
+                          style="--logo-text-size: 30px;">ZENZERO</span>
                       </span>
                     </label>
                   </div>

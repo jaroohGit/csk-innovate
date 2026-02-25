@@ -30,10 +30,10 @@ export default {
 
                             <nav id="navbar-example" class="navbar navbar-dark bg-light px-3">
                                 <BLink class="navbar-brand" href="#">
-                                    <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark"
-                                        alt="logo dark" height="14">
-                                    <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light"
-                                        alt="logo light" height="14">
+                                    <span class="card-logo card-logo-dark logo-text"
+                                        style="--logo-text-size: 17px;">ZENZERO</span>
+                                    <span class="card-logo card-logo-light logo-text"
+                                        style="--logo-text-size: 17px;">ZENZERO</span>
                                 </BLink>
                                 <ul class="nav nav-pills">
                                     <li class="nav-item">
@@ -159,10 +159,10 @@ export default {
                                 <BCol xxl="3">
                                     <nav id="navbar-examplenested" class="navbar navbar-dark bg-light flex-column">
                                         <BLink class="navbar-brand mb-2" href="#">
-                                            <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark"
-                                                alt="logo dark" height="15">
-                                            <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light"
-                                                alt="logo light" height="15">
+                                            <span class="card-logo card-logo-dark logo-text"
+                                                style="--logo-text-size: 18px;">ZENZERO</span>
+                                            <span class="card-logo card-logo-light logo-text"
+                                                style="--logo-text-size: 18px;">ZENZERO</span>
                                         </BLink>
                                         <nav class="nav nav-pills flex-column p-3 w-100">
                                             <BLink class="nav-link active" href="#item-1"><i

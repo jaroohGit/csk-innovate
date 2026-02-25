@@ -15,7 +15,7 @@ const rankinglist = [{
 {
     id: 2,
     ranking: 2,
-    img: "https://img.themesbrand.com/velzon/images/img-1.gif",
+    img: "https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif",
     collection: "Patterns Arts & Culture",
     volume_price: "32,850",
     hours: -42.03,
@@ -37,7 +37,7 @@ const rankinglist = [{
 {
     id: 4,
     ranking: 4,
-    img: "https://img.themesbrand.com/velzon/images/img-2.gif",
+    img: "https://img.themesbrand.com/CSK-INNOVATE/images/img-2.gif",
     collection: "Long-tailed Macaque",
     volume_price: "3,63,000",
     hours: 709.13,
@@ -70,7 +70,7 @@ const rankinglist = [{
 {
     id: 7,
     ranking: 7,
-    img: "https://img.themesbrand.com/velzon/images/img-3.gif",
+    img: "https://img.themesbrand.com/CSK-INNOVATE/images/img-3.gif",
     collection: "The Chirstoper",
     volume_price: "1,87,600",
     hours: -31.49,
@@ -81,7 +81,7 @@ const rankinglist = [{
 {
     id: 8,
     ranking: 8,
-    img: "https://img.themesbrand.com/velzon/images/img-3.gif",
+    img: "https://img.themesbrand.com/CSK-INNOVATE/images/img-3.gif",
     collection: "Walking On Air",
     volume_price: "4,62,000",
     hours: 238.13,
@@ -92,7 +92,7 @@ const rankinglist = [{
 {
     id: 9,
     ranking: 9,
-    img: "https://img.themesbrand.com/velzon/images/img-5.gif",
+    img: "https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif",
     collection: "The Chirstoper",
     volume_price: "74,950",
     hours: -31.49,

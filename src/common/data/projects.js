@@ -7,7 +7,7 @@ const projectWidgets1 = [{
     img: require("@/assets/images/brands/slack.png"),
     color: "warning",
     label: "Slack brand logo design",
-    caption: "Create a Brand logo design for a velzon admin.",
+    caption: "Create a Brand logo design for a CSK-INNOVATE admin.",
     number: "18/42",
     progressBar: "34%",
     subItem: [{

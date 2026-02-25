@@ -29,10 +29,10 @@ export default {
             <div class="text-center mt-sm-5 mb-4 text-white-50">
               <div>
                 <router-link to="/" class="d-inline-block auth-logo">
-                  <img src="@/assets/images/logo-light.png" alt="" height="20">
+                  <span class="logo-text" style="--logo-text-size: 36px;">ZENZERO</span>
                 </router-link>
               </div>
-              <p class="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>
+              <p class="mt-3 fs-15 fw-medium">IoT Industrial Monitoring Platform</p>
             </div>
           </BCol>
         </BRow>
@@ -44,7 +44,7 @@ export default {
               <BCardBody class="p-4">
                 <div class="text-center mt-2">
                   <h5 class="text-primary">Welcome Back !</h5>
-                  <p class="text-muted">Sign in to continue to Velzon.</p>
+                  <p class="text-muted">Sign in to continue to ZENZERO.</p>
                 </div>
                 <div class="p-2 mt-4">
                   <form>
@@ -115,7 +115,7 @@ export default {
         <BRow>
           <BCol lg="12">
             <div class="text-center">
-              <p class="mb-0 text-muted">&copy; {{ new Date().getFullYear() }} Velzon. Crafted with <i
+              <p class="mb-0 text-muted">&copy; {{ new Date().getFullYear() }} CSK-INNOVATE. Crafted with <i
                   class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
             </div>
           </BCol>

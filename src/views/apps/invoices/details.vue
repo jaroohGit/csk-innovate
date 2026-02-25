@@ -17,7 +17,7 @@ export default {
             country: "Brazil",
             date: "2021-04-06T16:28:00.000Z",
             discount: "53.99",
-            email: "velzon@themesbrand.com",
+            email: "CSK-INNOVATE@themesbrand.com",
             estimated_tax: "44.99",
             img: "assets/images/users/avatar-2.jpg",
             invoiceId: "#VL25000351",
@@ -124,10 +124,10 @@ export default {
                     <BCardHeader class="border-bottom-dashed p-4">
                         <div class="d-sm-flex">
                             <div class="flex-grow-1">
-                                <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark"
-                                    alt="logo dark" height="17">
-                                <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light"
-                                    alt="logo light" height="17">
+                                <span class="card-logo card-logo-dark logo-text"
+                                    style="--logo-text-size: 20px;">ZENZERO</span>
+                                <span class="card-logo card-logo-light logo-text"
+                                    style="--logo-text-size: 20px;">ZENZERO</span>
                                 <div class="mt-sm-5 mt-4">
                                     <h6 class="text-muted text-uppercase fw-semibold">Address</h6>
                                     <p class="text-muted mb-1" id="address-details">California, United States</p>

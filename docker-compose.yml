@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  CSK-INNOVATE-vue-frontend:
+    container_name: CSK-INNOVATE-vue-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+    networks:
+      - CSK-INNOVATE-net
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    labels:
+      - "com.CSK-INNOVATE.service=frontend"
+      - "com.CSK-INNOVATE.project=CSK-INNOVATE-vue"
+      - "com.CSK-INNOVATE.version=2.0.0"
+
+networks:
+  CSK-INNOVATE-net:
+    external: true

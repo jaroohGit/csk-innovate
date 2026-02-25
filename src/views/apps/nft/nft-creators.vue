@@ -125,7 +125,7 @@ export default {
                     <BCardBody>
                         <div class="d-flex">
                             <div class="flex-shrink-0">
-                                <img src="https://img.themesbrand.com/velzon/images/img-5.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif" alt=""
                                     class="avatar-sm object-fit-cover rounded">
                             </div>
                             <div class="ms-3 flex-grow-1">
@@ -284,7 +284,7 @@ export default {
             </BCol>
             <BCol>
                 <BCard no-body>
-                    <img src="https://img.themesbrand.com/velzon/images/img-2.gif" alt=""
+                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-2.gif" alt=""
                         class="object-fit-cover card-img-top" height="120">
                     <BCardBody class="text-center">
                         <img src="@/assets/images/users/avatar-6.jpg" alt=""
@@ -319,7 +319,7 @@ export default {
                 <BCard no-body>
                     <img src="@/assets/images/nft/img-06.jpg" alt="" class="object-fit-cover card-img-top" height="120">
                     <BCardBody class="text-center">
-                        <img src="https://img.themesbrand.com/velzon/images/img-1.gif" alt=""
+                        <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif" alt=""
                             class="avatar-md rounded-circle object-fit-cover mt-n5 border border-5 border-light mx-auto d-block">
                         <router-link to="/pages/profile">
                             <h5 class="mt-2 mb-1">James Morris</h5>
@@ -333,7 +333,7 @@ export default {
             </BCol>
             <BCol>
                 <BCard no-body>
-                    <img src="https://img.themesbrand.com/velzon/images/img-3.gif" alt=""
+                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-3.gif" alt=""
                         class="object-fit-cover card-img-top" height="120">
                     <BCardBody class="text-center">
                         <img src="@/assets/images/users/avatar-8.jpg" alt=""
@@ -366,7 +366,7 @@ export default {
             </BCol>
             <BCol>
                 <BCard no-body>
-                    <img src="https://img.themesbrand.com/velzon/images/img-2.gif" alt=""
+                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-2.gif" alt=""
                         class="object-fit-cover card-img-top" height="120">
                     <BCardBody class="text-center">
                         <img src="@/assets/images/users/avatar-6.jpg" alt=""
@@ -401,7 +401,7 @@ export default {
                 <BCard no-body>
                     <img src="@/assets/images/nft/img-01.jpg" alt="" class="object-fit-cover card-img-top" height="120">
                     <BCardBody class="text-center">
-                        <img src="https://img.themesbrand.com/velzon/images/img-1.gif" alt=""
+                        <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif" alt=""
                             class="avatar-md rounded-circle object-fit-cover mt-n5 border border-5 border-light mx-auto d-block">
                         <router-link to="/pages/profile">
                             <h5 class="mt-2 mb-1">Kevin Dawson</h5>
@@ -415,7 +415,7 @@ export default {
             </BCol>
             <BCol>
                 <BCard no-body>
-                    <img src="https://img.themesbrand.com/velzon/images/img-4.gif" alt=""
+                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-4.gif" alt=""
                         class="object-fit-cover card-img-top" height="120">
                     <BCardBody class="text-center">
                         <img src="@/assets/images/users/avatar-10.jpg" alt=""

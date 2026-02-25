@@ -285,7 +285,7 @@ export default {
                                     <div style="text-align: center; margin: 28px auto 0px auto;">
                                         <p
                                             style="font-family: 'Roboto', sans-serif; font-size: 14px;color: #98a6ad; margin: 0px;">
-                                            2022 Velzon. Design & Develop by Themesbrand</p>
+                                            2022 CSK-INNOVATE. Design & Develop by Themesbrand</p>
                                     </div>
                                 </div>
                             </td>
@@ -388,9 +388,9 @@ export default {
                                                                         support
                                                                         from
                                                                         the link below. <BLink
-                                                                            href="https://themeforest.net/item/velzon-aspnet-core-admin-dashboard-template/36077495/support"
+                                                                            href="https://themeforest.net/item/CSK-INNOVATE-aspnet-core-admin-dashboard-template/36077495/support"
                                                                             target="_blank">
-                                                                            https://themeforest.net/item/velzon-aspnet-core-admin-dashboard-template/36077495/support
+                                                                            https://themeforest.net/item/CSK-INNOVATE-aspnet-core-admin-dashboard-template/36077495/support
                                                                         </BLink>
                                                                     </p>
                                                                     <h6
@@ -407,7 +407,7 @@ export default {
                                     <div style="text-align: center; margin: 28px auto 0px auto;">
                                         <p
                                             style="font-family: 'Roboto', sans-serif; font-size: 14px;color: #98a6ad; margin: 0px;">
-                                            2022 Velzon. Design & Develop by Themesbrand</p>
+                                            2022 CSK-INNOVATE. Design & Develop by Themesbrand</p>
                                     </div>
                                 </div>
                             </td>
@@ -454,7 +454,8 @@ export default {
                                                     </div>
                                                     <div
                                                         style="padding: 20px;box-sizing: border-box; text-align: center; border-bottom: 1px solid #e9ebec;">
-                                                        <img src="@/assets/images/logo-dark.png" alt="" height="23">
+                                                        <span class="logo-text"
+                                                            style="--logo-text-size: 28px;">ZENZERO</span>
                                                     </div>
                                                     <div
                                                         style="padding: 20px;box-sizing: border-box; text-align: center;">
@@ -563,7 +564,7 @@ export default {
                                     <div style="text-align: center; margin: 28px auto 0px auto;">
                                         <p
                                             style="font-family: 'Roboto', sans-serif; font-size: 14px;color: #98a6ad; margin: 0px;">
-                                            2022 Velzon. Design & Develop by Themesbrand</p>
+                                            2022 CSK-INNOVATE. Design & Develop by Themesbrand</p>
                                     </div>
                                 </div>
                             </td>

@@ -58,7 +58,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="me-2">
-                                        <img src="https://img.themesbrand.com/velzon/images/img-5.gif" alt=""
+                                        <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif" alt=""
                                             class="avatar-xs rounded-circle">
                                     </div>
                                     <div class="flex-grow-1">

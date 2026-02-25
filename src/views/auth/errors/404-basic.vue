@@ -45,7 +45,7 @@ export default {
         <BRow>
           <BCol lg="12">
             <div class="text-center">
-              <p class="mb-0 text-muted">&copy; {{ new Date().getFullYear() }} Velzon. Crafted with <i
+              <p class="mb-0 text-muted">&copy; {{ new Date().getFullYear() }} CSK-INNOVATE. Crafted with <i
                   class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
             </div>
           </BCol>

@@ -1374,14 +1374,9 @@ export default {
       </simpleBar>
       <template #footer>
         <BRow>
-          <BCol cols="6">
+          <BCol cols="12">
             <BButton type="button" variant="light" class="w-100" id="reset-layout" @click="resetLayout">
-              Reset
-            </BButton>
-          </BCol>
-          <BCol cols="6">
-            <BButton href="https://1.envato.market/velzon-admin" target="_blank" variant="primary" class="w-100">
-              Buy Now
+              Reset Layout
             </BButton>
           </BCol>
         </BRow>

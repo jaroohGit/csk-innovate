@@ -271,10 +271,10 @@ export default {
                     <BCardBody>
                         <form action="#">
                             <BLink class="navbar-brand d-block text-center pt-3 pb-4 mb-1" href="#">
-                                <img src="@/assets/images/logo-dark.png" class="card-logo mx-auto card-logo-dark"
-                                    alt="logo dark" height="17">
-                                <img src="@/assets/images/logo-light.png" class="card-logo mx-auto card-logo-light"
-                                    alt="logo light" height="17">
+                                <span class="card-logo mx-auto card-logo-dark logo-text"
+                                    style="--logo-text-size: 20px;">ZENZERO</span>
+                                <span class="card-logo mx-auto card-logo-light logo-text"
+                                    style="--logo-text-size: 20px;">ZENZERO</span>
                             </BLink>
                             <div class="step-arrow-nav mb-4">
 

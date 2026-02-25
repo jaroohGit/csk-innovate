@@ -815,7 +815,7 @@ export default {
 
 <template>
   <Layout>
-    <PageHeader title="Widgets" pageTitle="Velzon" />
+    <PageHeader title="Widgets" pageTitle="CSK-INNOVATE" />
     <BRow>
       <BCol cols="12">
         <h5 class="text-decoration-underline mb-3 pb-1">Tile Boxs</h5>
@@ -2076,7 +2076,7 @@ export default {
                         <div class="flex-grow-1">
                           <label class="form-check-label mb-0 ps-2" for="task_six">Styling wireframe design and
                             documentation for
-                            velzon admin</label>
+                            CSK-INNOVATE admin</label>
                         </div>
                         <div class="flex-shrink-0 ms-2">
                           <p class="text-muted fs-12 mb-0">27 Sep, 2021</p>

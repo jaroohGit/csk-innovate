@@ -1,9 +1,10 @@
 {
-  "name": "velzon",
+  "name": "CSK-INNOVATE",
   "version": "4.4.1",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
+    "serve": "npm run dev",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -49,6 +50,7 @@
     "sass-loader": "^13.3.2",
     "simplebar": "^6.3.2",
     "simplebar-vue": "^2.4.2",
+    "socket.io-client": "^4.8.3",
     "swiper": "^11.2.10",
     "vue": "^3.5.17",
     "vue-draggable-next": "^2.2.1",

@@ -21,7 +21,8 @@ import "leaflet/dist/leaflet.css";
 import '@/assets/scss/mermaid.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle'
 
-// FakeBackend authentication
+// FakeBackend authentication (DISABLED - Using real API now)
+// Uncomment below lines ONLY for testing without backend
 // import { configureFakeBackend } from './helpers/fake-backend';
 // configureFakeBackend();
 

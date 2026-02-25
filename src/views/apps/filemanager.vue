@@ -747,7 +747,7 @@ export default {
                         </tr>
                         <tr>
                           <th scope="row">Share Path :</th>
-                          <td class="share-path">velzon:\Documents\</td>
+                          <td class="share-path">CSK-INNOVATE:\Documents\</td>
                         </tr>
                       </tbody>
                     </table>

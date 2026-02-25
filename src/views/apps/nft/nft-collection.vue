@@ -49,11 +49,11 @@ export default {
                         <BRow class="g-1 mb-3">
                             <BCol cols="6">
                                 <img src="@/assets/images/nft/img-06.jpg" alt="" class="img-fluid rounded">
-                                <img src="https://img.themesbrand.com/velzon/images/img-2.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-2.gif" alt=""
                                     class="img-fluid rounded mt-1">
                             </BCol>
                             <BCol cols="6">
-                                <img src="https://img.themesbrand.com/velzon/images/img-5.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif" alt=""
                                     class="img-fluid rounded mb-1">
                                 <img src="@/assets/images/nft/img-03.jpg" alt="" class="img-fluid rounded">
                             </BCol>
@@ -74,11 +74,11 @@ export default {
                         <BRow class="g-1 mb-3">
                             <BCol cols="6">
                                 <img src="@/assets/images/nft/img-05.jpg" alt="" class="img-fluid rounded">
-                                <img src="https://img.themesbrand.com/velzon/images/img-1.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif" alt=""
                                     class="img-fluid rounded mt-1">
                             </BCol>
                             <BCol cols="6">
-                                <img src="https://img.themesbrand.com/velzon/images/img-4.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-4.gif" alt=""
                                     class="img-fluid rounded mb-1">
                                 <img src="@/assets/images/nft/img-04.jpg" alt="" class="img-fluid rounded">
                             </BCol>
@@ -99,11 +99,11 @@ export default {
                         <BRow class="g-1 mb-3">
                             <BCol cols="6">
                                 <img src="@/assets/images/nft/img-02.jpg" alt="" class="img-fluid rounded">
-                                <img src="https://img.themesbrand.com/velzon/images/img-3.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-3.gif" alt=""
                                     class="img-fluid rounded mt-1">
                             </BCol>
                             <BCol cols="6">
-                                <img src="https://img.themesbrand.com/velzon/images/img-1.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif" alt=""
                                     class="img-fluid rounded mb-1">
                                 <img src="@/assets/images/nft/img-01.jpg" alt="" class="img-fluid rounded">
                             </BCol>
@@ -124,11 +124,11 @@ export default {
                         <BRow class="g-1 mb-3">
                             <BCol cols="6">
                                 <img src="@/assets/images/nft/img-03.jpg" alt="" class="img-fluid rounded">
-                                <img src="https://img.themesbrand.com/velzon/images/img-5.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif" alt=""
                                     class="img-fluid rounded mt-1">
                             </BCol>
                             <BCol cols="6">
-                                <img src="https://img.themesbrand.com/velzon/images/img-2.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-2.gif" alt=""
                                     class="img-fluid rounded mb-1">
                                 <img src="@/assets/images/nft/img-05.jpg" alt="" class="img-fluid rounded">
                             </BCol>
@@ -149,11 +149,11 @@ export default {
                         <BRow class="g-1 mb-3">
                             <BCol cols="6">
                                 <img src="@/assets/images/nft/img-02.jpg" alt="" class="img-fluid rounded">
-                                <img src="https://img.themesbrand.com/velzon/images/img-3.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-3.gif" alt=""
                                     class="img-fluid rounded mt-1">
                             </BCol>
                             <BCol cols="6">
-                                <img src="https://img.themesbrand.com/velzon/images/img-1.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif" alt=""
                                     class="img-fluid rounded mb-1">
                                 <img src="@/assets/images/nft/img-01.jpg" alt="" class="img-fluid rounded">
                             </BCol>
@@ -174,11 +174,11 @@ export default {
                         <BRow class="g-1 mb-3">
                             <BCol cols="6">
                                 <img src="@/assets/images/nft/img-05.jpg" alt="" class="img-fluid rounded">
-                                <img src="https://img.themesbrand.com/velzon/images/img-1.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif" alt=""
                                     class="img-fluid rounded mt-1">
                             </BCol>
                             <BCol cols="6">
-                                <img src="https://img.themesbrand.com/velzon/images/img-4.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-4.gif" alt=""
                                     class="img-fluid rounded mb-1">
                                 <img src="@/assets/images/nft/img-04.jpg" alt="" class="img-fluid rounded">
                             </BCol>
@@ -199,11 +199,11 @@ export default {
                         <BRow class="g-1 mb-3">
                             <BCol cols="6">
                                 <img src="@/assets/images/nft/img-06.jpg" alt="" class="img-fluid rounded">
-                                <img src="https://img.themesbrand.com/velzon/images/img-2.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-2.gif" alt=""
                                     class="img-fluid rounded mt-1">
                             </BCol>
                             <BCol cols="6">
-                                <img src="https://img.themesbrand.com/velzon/images/img-5.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif" alt=""
                                     class="img-fluid rounded mb-1">
                                 <img src="@/assets/images/nft/img-03.jpg" alt="" class="img-fluid rounded">
                             </BCol>
@@ -224,11 +224,11 @@ export default {
                         <BRow class="g-1 mb-3">
                             <BCol cols="6">
                                 <img src="@/assets/images/nft/img-03.jpg" alt="" class="img-fluid rounded">
-                                <img src="https://img.themesbrand.com/velzon/images/img-5.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif" alt=""
                                     class="img-fluid rounded mt-1">
                             </BCol>
                             <BCol cols="6">
-                                <img src="https://img.themesbrand.com/velzon/images/img-2.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-2.gif" alt=""
                                     class="img-fluid rounded mb-1">
                                 <img src="@/assets/images/nft/img-05.jpg" alt="" class="img-fluid rounded">
                             </BCol>

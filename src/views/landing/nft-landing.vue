@@ -96,9 +96,8 @@ export default {
         <nav class="navbar navbar-expand-lg navbar-landing navbar-light fixed-top" id="navbar">
             <BContainer>
                 <router-link class="navbar-brand" to="/">
-                    <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
-                    <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light"
-                        height="17">
+                    <span class="card-logo card-logo-dark logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
+                    <span class="card-logo card-logo-light logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
                 </router-link>
                 <BButton class="navbar-toggler py-0 fs-20 text-body" type="button" v-b-toggle.navbarSupportedContent>
                     <i class="mdi mdi-menu"></i>
@@ -321,7 +320,7 @@ export default {
                                     aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></BButton>
                             </div>
                             <div class="explore-place-bid-img">
-                                <img src="https://img.themesbrand.com/velzon/images/img-4.gif" alt=""
+                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-4.gif" alt=""
                                     class="card-img-top explore-img" />
                                 <div class="bg-overlay"></div>
                                 <div class="place-bid-btn">
@@ -546,11 +545,11 @@ export default {
                                                 <BCol cols="6">
                                                     <img src="@/assets/images/nft/img-06.jpg" alt=""
                                                         class="img-fluid rounded">
-                                                    <img src="https://img.themesbrand.com/velzon/images/img-2.gif" alt=""
+                                                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-2.gif" alt=""
                                                         class="img-fluid rounded mt-1">
                                                 </BCol>
                                                 <BCol cols="6">
-                                                    <img src="https://img.themesbrand.com/velzon/images/img-5.gif" alt=""
+                                                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif" alt=""
                                                         class="img-fluid rounded mb-1">
                                                     <img src="@/assets/images/nft/img-03.jpg" alt=""
                                                         class="img-fluid rounded">
@@ -573,11 +572,11 @@ export default {
                                                 <BCol cols="6">
                                                     <img src="@/assets/images/nft/img-05.jpg" alt=""
                                                         class="img-fluid rounded">
-                                                    <img src="https://img.themesbrand.com/velzon/images/img-1.gif" alt=""
+                                                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif" alt=""
                                                         class="img-fluid rounded mt-1">
                                                 </BCol>
                                                 <BCol cols="6">
-                                                    <img src="https://img.themesbrand.com/velzon/images/img-4.gif" alt=""
+                                                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-4.gif" alt=""
                                                         class="img-fluid rounded mb-1">
                                                     <img src="@/assets/images/nft/img-04.jpg" alt=""
                                                         class="img-fluid rounded">
@@ -601,11 +600,11 @@ export default {
                                                     <BCol cols="6">
                                                         <img src="@/assets/images/nft/img-02.jpg" alt=""
                                                             class="img-fluid rounded">
-                                                        <img src="https://img.themesbrand.com/velzon/images/img-3.gif"
+                                                        <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-3.gif"
                                                             alt="" class="img-fluid rounded mt-1">
                                                     </BCol>
                                                     <BCol cols="6">
-                                                        <img src="https://img.themesbrand.com/velzon/images/img-1.gif"
+                                                        <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif"
                                                             alt="" class="img-fluid rounded mb-1">
                                                         <img src="@/assets/images/nft/img-01.jpg" alt=""
                                                             class="img-fluid rounded">
@@ -629,11 +628,11 @@ export default {
                                                 <BCol cols="6">
                                                     <img src="@/assets/images/nft/img-03.jpg" alt=""
                                                         class="img-fluid rounded">
-                                                    <img src="https://img.themesbrand.com/velzon/images/img-5.gif" alt=""
+                                                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif" alt=""
                                                         class="img-fluid rounded mt-1">
                                                 </BCol>
                                                 <BCol cols="6">
-                                                    <img src="https://img.themesbrand.com/velzon/images/img-2.gif" alt=""
+                                                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-2.gif" alt=""
                                                         class="img-fluid rounded mb-1">
                                                     <img src="@/assets/images/nft/img-05.jpg" alt=""
                                                         class="img-fluid rounded">
@@ -656,11 +655,11 @@ export default {
                                                 <BCol cols="6">
                                                     <img src="@/assets/images/nft/img-02.jpg" alt=""
                                                         class="img-fluid rounded">
-                                                    <img src="https://img.themesbrand.com/velzon/images/img-3.gif" alt=""
+                                                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-3.gif" alt=""
                                                         class="img-fluid rounded mt-1">
                                                 </BCol>
                                                 <BCol cols="6">
-                                                    <img src="https://img.themesbrand.com/velzon/images/img-1.gif" alt=""
+                                                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif" alt=""
                                                         class="img-fluid rounded mb-1">
                                                     <img src="@/assets/images/nft/img-01.jpg" alt=""
                                                         class="img-fluid rounded">
@@ -786,7 +785,7 @@ export default {
                                     </div>
                                 </div>
                                 <div class="explore-place-bid-img overflow-hidden rounded">
-                                    <img src="https://img.themesbrand.com/velzon/images/img-1.gif" alt=""
+                                    <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-1.gif" alt=""
                                         class="img-fluid explore-img">
                                     <div class="bg-overlay"></div>
                                     <div class="place-bid-btn">
@@ -912,7 +911,7 @@ export default {
                             <BCardBody>
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src="https://img.themesbrand.com/velzon/images/img-5.gif" alt=""
+                                        <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-5.gif" alt=""
                                             class="avatar-sm object-fit-cover rounded">
                                     </div>
                                     <div class="ms-3 flex-grow-1">
@@ -1025,13 +1024,13 @@ export default {
                     <BCol lg="4" class="mt-4">
                         <div>
                             <div>
-                                <img src="@/assets/images/logo-light.png" alt="logo light" height="17">
+                                <span class="card-logo card-logo-light logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
                             </div>
                             <div class="mt-4">
                                 <p>Premium Multipurpose Admin & Dashboard Template</p>
                                 <p>You can build any type of web application like eCommerce, CRM,
                                     CMS, Project
-                                    management apps, Admin Panels, etc using Velzon.</p>
+                                    management apps, Admin Panels, etc using ZENZERO.</p>
                             </div>
                         </div>
                     </BCol>
@@ -1101,8 +1100,7 @@ export default {
                     <BCol sm="6">
 
                         <div>
-                            <p class="copy-rights mb-0 currentyear">{{ new Date().getFullYear() }} © Velzon -
-                                Themesbrand
+                            <p class="copy-rights mb-0 currentyear">{{ new Date().getFullYear() }} © ZENZERO
                             </p>
                         </div>
                     </BCol>

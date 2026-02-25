@@ -35,7 +35,7 @@ export default {
                                         </BCol>
                                         <BCol md>
                                             <div>
-                                                <h4 class="fw-bold">Velzon - Admin & Dashboard</h4>
+                                                <h4 class="fw-bold">CSK-INNOVATE - Admin & Dashboard</h4>
                                                 <div class="hstack gap-3 flex-wrap">
                                                     <div><i class="ri-building-line align-bottom me-1"></i> Themesbrand
                                                     </div>
@@ -194,7 +194,7 @@ export default {
                                                                     <h5 class="fs-13 mb-1">
                                                                         <BLink href="#"
                                                                             class="text-body text-truncate d-block">
-                                                                            Velzon
+                                                                            CSK-INNOVATE
                                                                             admin.ppt</BLink>
                                                                     </h5>
                                                                     <div>2.4MB</div>
@@ -696,7 +696,7 @@ export default {
                                                     <div class="flex-grow-1 overflow-hidden">
                                                         <h5 class="fs-13 mb-1">
                                                             <BLink href="#" class="text-body text-truncate d-block">
-                                                                Velzon-admin.ppt</BLink>
+                                                                CSK-INNOVATE-admin.ppt</BLink>
                                                         </h5>
                                                         <div>2.4MB</div>
                                                     </div>
@@ -1051,7 +1051,7 @@ export default {
                                                             <div class="ms-3 flex-grow-1">
                                                                 <h5 class="fs-14 mb-0">
                                                                     <BLink href="javascript:void(0);" class="text-body">
-                                                                        Velzon-logo.png</BLink>
+                                                                        CSK-INNOVATE-logo.png</BLink>
                                                                 </h5>
                                                             </div>
                                                         </div>
@@ -1197,7 +1197,7 @@ export default {
                                         </div>
                                         <div class="flex-grow-1 ms-3">
                                             <h6 class="mb-1">Bethany Johnson</h6>
-                                            <p class="text-muted mb-2">added a new member to velzon dashboard</p>
+                                            <p class="text-muted mb-2">added a new member to CSK-INNOVATE dashboard</p>
                                             <small class="mb-0 text-muted">19 Nov</small>
                                         </div>
                                     </div>

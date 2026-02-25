@@ -68,8 +68,8 @@ export default {
                                                                     style="font-family: 'Roboto', sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;"
                                                                     valign="top">
                                                                     <div style="margin-bottom: 15px;">
-                                                                        <img src="@/assets/images/logo-dark.png" alt=""
-                                                                            height="23">
+                                                                        <span class="logo-text"
+                                                                            style="--logo-text-size: 28px;">ZENZERO</span>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -172,7 +172,7 @@ export default {
                                         </ul>
                                         <p
                                             style="font-family: 'Roboto', sans-serif; font-size: 14px;color: #98a6ad; margin: 0px;">
-                                            2022 Velzon. Design & Develop by Themesbrand</p>
+                                            2022 CSK-INNOVATE. Design & Develop by Themesbrand</p>
                                     </div>
                                 </div>
                             </td>
@@ -221,8 +221,8 @@ export default {
                                                                     valign="top">
                                                                     <div
                                                                         style="text-align: center;margin-bottom: 15px;">
-                                                                        <img src="@/assets/images/logo-dark.png" alt=""
-                                                                            height="23">
+                                                                        <span class="logo-text"
+                                                                            style="--logo-text-size: 28px;">ZENZERO</span>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -299,7 +299,7 @@ export default {
                                         </ul>
                                         <p
                                             style="font-family: 'Roboto', sans-serif; font-size: 14px;color: #98a6ad; margin: 0px;">
-                                            2022 Velzon. Design & Develop by Themesbrand</p>
+                                            2022 CSK-INNOVATE. Design & Develop by Themesbrand</p>
                                     </div>
                                 </div>
                             </td>
@@ -348,8 +348,8 @@ export default {
                                                                     valign="top">
                                                                     <div
                                                                         style="text-align: center;margin-bottom: 15px;">
-                                                                        <img src="@/assets/images/logo-dark.png" alt=""
-                                                                            height="23">
+                                                                        <span class="logo-text"
+                                                                            style="--logo-text-size: 28px;">ZENZERO</span>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -404,9 +404,9 @@ export default {
                                                                     <p style="margin-bottom: 10px;">Or verify using this
                                                                         link:
                                                                     </p>
-                                                                    <BLink href="https://themesbrand.com/velzon/"
+                                                                    <BLink href="https://themesbrand.com/CSK-INNOVATE/"
                                                                         target="_blank">
-                                                                        https://themesbrand.com/velzon/</BLink>
+                                                                        https://themesbrand.com/CSK-INNOVATE/</BLink>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -422,11 +422,11 @@ export default {
                                             Need Help ?</h4>
                                         <p style="color: #878a99; line-height: 1.5;">Please send and feedback or bug
                                             info to
-                                            <BLink href="" style="font-weight: 500;">info@velzon.com</BLink>
+                                            <BLink href="" style="font-weight: 500;">info@CSK-INNOVATE.com</BLink>
                                         </p>
                                         <p
                                             style="font-family: 'Roboto', sans-serif; font-size: 14px;color: #98a6ad; margin: 0px;">
-                                            2022 Velzon. Design & Develop by Themesbrand</p>
+                                            2022 CSK-INNOVATE. Design & Develop by Themesbrand</p>
                                     </div>
                                 </div>
                             </td>
@@ -566,11 +566,11 @@ export default {
                                     <div style="text-align: center; margin: 28px auto 0px auto;">
                                         <h4>Need Help ?</h4>
                                         <p style="color: #878a99;">Please send and feedback or bug info to <BLink
-                                                href="" style="font-weight: 500px;">info@velzon.com</BLink>
+                                                href="" style="font-weight: 500px;">info@CSK-INNOVATE.com</BLink>
                                         </p>
                                         <p
                                             style="font-family: 'Roboto', sans-serif; font-size: 14px;color: #98a6ad; margin: 0px;">
-                                            2022 Velzon. Design & Develop by Themesbrand</p>
+                                            2022 CSK-INNOVATE. Design & Develop by Themesbrand</p>
                                     </div>
                                 </div>
                             </td>

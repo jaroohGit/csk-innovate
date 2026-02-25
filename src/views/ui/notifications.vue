@@ -33,9 +33,9 @@ export default {
                                     <div class="toast fade show" role="alert" aria-live="assertive" data-bs-autohide="false"
                                         aria-atomic="true">
                                         <div class="toast-header">
-                                            <img src="@/assets/images/logo-sm.png" class="rounded me-2" alt="..."
-                                                height="20" />
-                                            <span class="fw-semibold me-auto">Velzon</span>
+                                            <span class="logo-text rounded me-2"
+                                                style="--logo-text-size: 24px;">ZENZERO</span>
+                                            <span class="fw-semibold me-auto">ZENZERO</span>
                                             <small>06 mins ago</small>
                                             <BButton variant="link"  class="btn-close" data-bs-dismiss="toast"
                                                 aria-label="Close"></BButton>
@@ -55,9 +55,9 @@ export default {
                                             <div class="toast fade show" role="alert" aria-live="assertive"
                                                 data-bs-autohide="false" aria-atomic="true">
                                                 <div class="toast-header">
-                                                    <img src="@/assets/images/logo-sm.png" class="rounded me-2" alt="..."
-                                                        height="20" />
-                                                    <span class="fw-semibold me-auto">Velzon</span>
+                                                    <span class="logo-text rounded me-2"
+                                                        style="--logo-text-size: 24px;">ZENZERO</span>
+                                                    <span class="fw-semibold me-auto">ZENZERO</span>
                                                     <small>11 mins ago</small>
                                                     <BButton variant="link"  class="btn-close" data-bs-dismiss="toast"
                                                         aria-label="Close"></BButton>
@@ -84,7 +84,7 @@ export default {
                                                 <div class="toast-header">
                                                     <img src="@/assets/images/logo-sm.png" class="rounded me-2" alt="..."
                                                         height="20" />
-                                                    <span class="fw-semibold me-auto">Velzon</span>
+                                                    <span class="fw-semibold me-auto">CSK-INNOVATE</span>
                                                     <small>Just now</small>
                                                     <BButton variant="link"  class="btn-close" data-bs-dismiss="toast"
                                                         aria-label="Close"></BButton>
@@ -97,7 +97,7 @@ export default {
                                                 <div class="toast-header">
                                                     <img src="@/assets/images/logo-sm.png" class="rounded me-2" alt="..."
                                                         height="20" />
-                                                    <span class="fw-semibold me-auto">Velzon</span>
+                                                    <span class="fw-semibold me-auto">CSK-INNOVATE</span>
                                                     <small>2 seconds ago</small>
                                                     <BButton variant="link"  class="btn-close" data-bs-dismiss="toast"
                                                         aria-label="Close"></BButton>
@@ -134,7 +134,7 @@ export default {
                                                     <div class="toast-header">
                                                         <img src="@/assets/images/logo-sm.png" class="rounded me-2"
                                                             alt="..." height="20" />
-                                                        <span class="fw-semibold me-auto">Velzon</span>
+                                                        <span class="fw-semibold me-auto">CSK-INNOVATE</span>
                                                         <small>06 mins ago</small>
                                                         <BButton variant="link"  class="btn-close" data-bs-dismiss="toast"
                                                             aria-label="Close"></BButton>
@@ -161,9 +161,9 @@ export default {
                                                 <div class="toast fade show" role="alert" aria-live="assertive"
                                                     data-bs-autohide="false" aria-atomic="true">
                                                     <div class="toast-header">
-                                                        <img src="@/assets/images/logo-sm.png" class="rounded me-2"
-                                                            alt="..." height="20" />
-                                                        <span class="fw-semibold me-auto">Velzon</span>
+                                                        <span class="logo-text rounded me-2"
+                                                            style="--logo-text-size: 24px;">ZENZERO</span>
+                                                        <span class="fw-semibold me-auto">ZENZERO</span>
                                                         <small>11 mins ago</small>
                                                         <BButton variant="link"  class="btn-close" data-bs-dismiss="toast"
                                                             aria-label="Close"></BButton>
@@ -183,9 +183,8 @@ export default {
 &lt;div class=&quot;toast fade show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot;
     data-bs-autohide=&quot;false&quot; aria-atomic=&quot;true&quot;&gt;
     &lt;div class=&quot;toast-header&quot;&gt;
-        &lt;img src=&quot;assets/images/logo-sm.png&quot; class=&quot;rounded me-2&quot;
-            alt=&quot;...&quot; height=&quot;20&quot;&gt;
-        &lt;span class=&quot;fw-semibold me-auto&quot;&gt;Velzon&lt;/span&gt;
+        &lt;span class=&quot;logo-text rounded me-2&quot; style=&quot;--logo-text-size: 24px;&quot;&gt;ZENZERO&lt;/span&gt;
+        &lt;span class=&quot;fw-semibold me-auto&quot;&gt;ZENZERO&lt;/span&gt;
         &lt;small&gt;06 mins ago&lt;/small&gt;
         &lt;button type=&quot;button&quot; class=&quot;btn-close&quot;
             data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
@@ -200,9 +199,8 @@ export default {
     &lt;div class=&quot;toast fade show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot;
         data-bs-autohide=&quot;false&quot; aria-atomic=&quot;true&quot;&gt;
         &lt;div class=&quot;toast-header&quot;&gt;
-            &lt;img src=&quot;assets/images/logo-sm.png&quot; class=&quot;rounded me-2&quot;
-                alt=&quot;...&quot; height=&quot;20&quot;&gt;
-            &lt;span class=&quot;fw-semibold me-auto&quot;&gt;Velzon&lt;/span&gt;
+            &lt;span class=&quot;logo-text rounded me-2&quot; style=&quot;--logo-text-size: 24px;&quot;&gt;ZENZERO&lt;/span&gt;
+            &lt;span class=&quot;fw-semibold me-auto&quot;&gt;ZENZERO&lt;/span&gt;
             &lt;small&gt;11 mins ago&lt;/small&gt;
             &lt;button type=&quot;button&quot; class=&quot;btn-close&quot;
                 data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
@@ -219,7 +217,7 @@ export default {
     &lt;div class=&quot;toast-header&quot;&gt;
         &lt;img src=&quot;assets/images/logo-sm.png&quot; class=&quot;rounded me-2&quot;
             alt=&quot;...&quot; height=&quot;20&quot;&gt;
-        &lt;span class=&quot;fw-semibold me-auto&quot;&gt;Velzon&lt;/span&gt;
+        &lt;span class=&quot;fw-semibold me-auto&quot;&gt;CSK-INNOVATE&lt;/span&gt;
         &lt;small&gt;Just now&lt;/small&gt;
         &lt;button type=&quot;button&quot; class=&quot;btn-close&quot;
             data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
@@ -238,7 +236,7 @@ export default {
         &lt;div class=&quot;toast-header&quot;&gt;
             &lt;img src=&quot;assets/images/logo-sm.png&quot;
                 class=&quot;rounded me-2&quot; alt=&quot;...&quot; height=&quot;20&quot;&gt;
-            &lt;span class=&quot;fw-semibold me-auto&quot;&gt;Velzon&lt;/span&gt;
+            &lt;span class=&quot;fw-semibold me-auto&quot;&gt;CSK-INNOVATE&lt;/span&gt;
             &lt;small&gt;06 mins ago&lt;/small&gt;
             &lt;button type=&quot;button&quot; class=&quot;btn-close&quot;
                 data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
@@ -258,7 +256,7 @@ export default {
         &lt;div class=&quot;toast-header&quot;&gt;
             &lt;img src=&quot;assets/images/logo-sm.png&quot;
                 class=&quot;rounded me-2&quot; alt=&quot;...&quot; height=&quot;20&quot;&gt;
-            &lt;span class=&quot;fw-semibold me-auto&quot;&gt;Velzon&lt;/span&gt;
+            &lt;span class=&quot;fw-semibold me-auto&quot;&gt;CSK-INNOVATE&lt;/span&gt;
             &lt;small&gt;11 mins ago&lt;/small&gt;
             &lt;button type=&quot;button&quot; class=&quot;btn-close&quot;
                 data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;

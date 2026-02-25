@@ -83,7 +83,7 @@ export default {
                                             <img src="@/assets/images/nft/img-03.jpg" alt="" class="img-fluid rounded">
                                         </BCol>
                                         <BCol cols="3">
-                                            <img src="https://img.themesbrand.com/velzon/images/img-3.gif" alt=""
+                                            <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-3.gif" alt=""
                                                 class="img-fluid rounded h-100 object-fit-cover">
                                         </BCol>
                                         <BCol cols="3">
@@ -241,7 +241,7 @@ export default {
                                                     <tr>
                                                         <th scope="row">
                                                             <div class="d-flex align-items-center">
-                                                                <img src="https://img.themesbrand.com/velzon/images/img-4.gif"
+                                                                <img src="https://img.themesbrand.com/CSK-INNOVATE/images/img-4.gif"
                                                                     alt="" class="avatar-xs rounded object-fit-cover" />
                                                                 <router-link to="/apps/nft-item-detail" class="text-body">
                                                                     <span class="mb-0 ms-2">Evolved

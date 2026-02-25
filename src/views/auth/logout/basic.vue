@@ -37,7 +37,7 @@ export default {
             <div class="text-center mt-sm-5 mb-4 text-white-50">
               <div>
                 <router-link to="/" class="d-inline-block auth-logo">
-                  <img src="@/assets/images/logo-light.png" alt="" height="20">
+                  <span class="logo-text" style="--logo-text-size: 24px;">ZENZERO</span>
                 </router-link>
               </div>
               <p class="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>
@@ -53,7 +53,7 @@ export default {
                   :width="180" />
                 <div class="mt-4 pt-2">
                   <h5>You are Logged Out</h5>
-                  <p class="text-muted">Thank you for using <span class="fw-semibold">velzon</span>
+                  <p class="text-muted">Thank you for using <span class="fw-semibold">CSK-INNOVATE</span>
                     admin template</p>
                   <div class="mt-4">
                     <router-link to="/auth/signin-basic" class="btn btn-success w-100">Sign In
@@ -73,7 +73,7 @@ export default {
         <BRow>
           <BCol lg="12">
             <div class="text-center">
-              <p class="mb-0 text-muted">&copy; {{ new Date().getFullYear() }} Velzon. Crafted with <i
+              <p class="mb-0 text-muted">&copy; {{ new Date().getFullYear() }} CSK-INNOVATE. Crafted with <i
                   class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
             </div>
           </BCol>

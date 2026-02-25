@@ -114,7 +114,7 @@ export default {
                             </tr>
                             <tr>
                               <th class="ps-0" scope="row">E-mail :</th>
-                              <td class="text-muted">daveadame@velzon.com</td>
+                              <td class="text-muted">daveadame@CSK-INNOVATE.com</td>
                             </tr>
                             <tr>
                               <th class="ps-0" scope="row">Location :</th>
@@ -375,7 +375,7 @@ export default {
                             </div>
                             <div class="flex-grow-1 overflow-hidden">
                               <p class="mb-1">Website :</p>
-                              <BLink href="#" class="fw-semibold">www.velzon.com</BLink>
+                              <BLink href="#" class="fw-semibold">www.CSK-INNOVATE.com</BLink>
                             </div>
                           </div>
                         </BCol>
@@ -583,8 +583,8 @@ export default {
                                     <BCollapse id="collapseFive" visible>
                                       <div class="accordion-body ms-2 ps-5">
                                         <p class="text-muted mb-2">
-                                          Every team project can have a velzon.
-                                          Use the velzon to share information
+                                          Every team project can have a CSK-INNOVATE.
+                                          Use the CSK-INNOVATE to share information
                                           with your team to understand and
                                           contribute to your project.
                                         </p>
@@ -690,7 +690,7 @@ export default {
                                           </div>
                                           <div class="flex-grow-1 ms-3">
                                             <h6 class="fs-14 mb-1">
-                                              Velzon admin dashboard templates
+                                              CSK-INNOVATE admin dashboard templates
                                               layout upload
                                             </h6>
                                             <small class="text-muted">We talked about a project on
@@ -979,8 +979,8 @@ export default {
                                     <BCollapse id="collapse15" visible>
                                       <div class="accordion-body ms-2 ps-5">
                                         <p class="text-muted mb-2">
-                                          Every team project can have a velzon.
-                                          Use the velzon to share information
+                                          Every team project can have a CSK-INNOVATE.
+                                          Use the CSK-INNOVATE to share information
                                           with your team to understand and
                                           contribute to your project.
                                         </p>
@@ -1406,7 +1406,7 @@ export default {
                       <div class="flex-grow-1 ms-3">
                         <h6 class="mb-1">Bethany Johnson</h6>
                         <p class="text-muted mb-2">
-                          added a new member to velzon dashboard
+                          added a new member to CSK-INNOVATE dashboard
                         </p>
                         <small class="mb-0 text-muted">19 Nov</small>
                       </div>
@@ -1670,7 +1670,7 @@ export default {
                           <div class="d-flex">
                             <div class="flex-grow-1 text-muted overflow-hidden">
                               <h5 class="fs-14 text-truncate">
-                                <BLink href="#" class="text-body">Velzon Project</BLink>
+                                <BLink href="#" class="text-body">CSK-INNOVATE Project</BLink>
                               </h5>
                               <p class="text-muted text-truncate mb-0">
                                 Last Update :
@@ -2363,7 +2363,7 @@ export default {
                                   </div>
                                   <div class="ms-3 flex-grow-1">
                                     <h6 class="fs-15 mb-0">
-                                      <BLink href="javascript:void(0);">Velzon-logo.png</BLink>
+                                      <BLink href="javascript:void(0);">CSK-INNOVATE-logo.png</BLink>
                                     </h6>
                                   </div>
                                 </div>

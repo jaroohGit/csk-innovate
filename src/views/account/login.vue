@@ -1,10 +1,10 @@
 <script>
+import useVuelidate from '@vuelidate/core';
 import {
   required,
-  email,
   helpers
 } from "@vuelidate/validators";
-import axios from 'axios';
+import apiService from '@/services/api';
 
 import {
   authMethods,
@@ -14,10 +14,13 @@ import {
 
 
 export default {
+  setup() {
+    return { v$: useVuelidate() }
+  },
   data() {
     return {
-      email: "admin@themesbrand.com",
-      password: "123456",
+      username: "admin",
+      password: "admin123",
       submitted: false,
       authError: null,
       tryingToLogIn: false,
@@ -26,9 +29,8 @@ export default {
     };
   },
   validations: {
-    email: {
-      required: helpers.withMessage("Email is required", required),
-      email: helpers.withMessage("Please enter valid email", email),
+    username: {
+      required: helpers.withMessage("Username is required", required),
     },
     password: {
       required: helpers.withMessage("Password is required", required),
@@ -42,78 +44,64 @@ export default {
     ...authFackMethods,
     ...notificationMethods,
 
-    async signinapi() {
-      this.processing = true;
-      const result = await axios.post('https://api-node.themesbrand.website/auth/signin', {
-        email: this.email,
-        password: this.password
-      });
-      if (result.data.status == 'errors') {
-        return this.authError = result.data.data;
-      }
-      localStorage.setItem('jwt', result.data.token);
-      this.$router.push({
-        path: '/'
-      });
-    },
-
-    // Try to log the user in with the username
-    // and password they provided.
-    tryToLogIn() {
+    // Try to log the user in with the username and password
+    async tryToLogIn() {
+      console.log('🚀 Starting login process...');
       this.processing = true;
       this.submitted = true;
-      // stop here if form is invalid
-      this.$touch;
-
-      if (this.$invalid) {
+      
+      // Validate form
+      this.v$.$touch();
+      if (this.v$.$invalid) {
+        console.log('❌ Form validation failed');
+        this.processing = false;
         return;
-      } else {
-        if (process.env.VUE_APP_DEFAULT_AUTH === "firebase") {
-          this.tryingToLogIn = true;
-          // Reset the authError if it existed.
-          this.authError = null;
-          return (
-            this.logIn({
-              email: this.email,
-              password: this.password,
-            })
-              // eslint-disable-next-line no-unused-vars
-              .then((token) => {
-                this.tryingToLogIn = false;
-                this.isAuthError = false;
-                // Redirect to the originally requested page, or to the home page
-                this.$router.push({
-                  path: '/'
-                });
-              })
-              .catch((error) => {
-                this.tryingToLogIn = false;
-                this.authError = error ? error : "";
-                this.isAuthError = true;
-                this.processing = false;
-              })
-          );
-        } else if (process.env.VUE_APP_DEFAULT_AUTH === "fakebackend") {
-          const { email, password } = this;
-          if (email && password) {
-            this.login({
-              email,
-              password,
-            });
+      }
+
+      try {
+        this.tryingToLogIn = true;
+        this.authError = null;
+        this.isAuthError = false;
+
+        console.log('📡 Calling API with:', { username: this.username });
+        
+        // Call our API service
+        const result = await apiService.login(this.username, this.password);
+        
+        console.log('📥 API Response:', result);
+        
+        if (result.token && result.user) {
+          console.log('✅ Login successful! Redirecting...');
+          
+          // Store user data
+          localStorage.setItem('user', JSON.stringify(result.user));
+          localStorage.setItem('username', result.user.username);
+          localStorage.setItem('role', result.user.role);
+          
+          this.tryingToLogIn = false;
+          this.processing = false;
+          
+          // Check for redirect parameter
+          const redirectPath = this.$route.query.redirect || '/overview/dashboard';
+          console.log('🔄 Redirecting to:', redirectPath);
+          
+          // Use router push if possible, otherwise hard navigation
+          if (redirectPath.startsWith('http')) {
+            window.location.href = redirectPath;
+          } else {
+            this.$router.push(redirectPath);
           }
-        } else if (process.env.VUE_APP_DEFAULT_AUTH === "authapi") {
-          axios
-            .post("http://127.0.0.1:8000/api/login", {
-              email: this.email,
-              password: this.password,
-            })
-            .then((res) => {
-              return res;
-            });
+        } else {
+          throw new Error('Login failed - no token received');
         }
+      } catch (error) {
+        console.error('❌ Login error:', error);
+        this.tryingToLogIn = false;
+        this.processing = false;
+        this.authError = error.message || 'Login failed. Please check your credentials.';
+        this.isAuthError = true;
       }
     },
-
   },
 };
 </script>
@@ -139,11 +127,11 @@ export default {
             <div class="text-center mt-sm-5 mb-4 text-white-50">
               <div>
                 <router-link to="/" class="d-inline-block auth-logo">
-                  <img src="@/assets/images/logo-light.png" alt="" height="20" />
+                  <span class="logo-text" style="--logo-text-size: 24px;">ZENZERO</span>
                 </router-link>
               </div>
               <p class="mt-3 fs-15 fw-medium">
-                Premium Admin & Dashboard Template
+                CSK-INNOVATE IoT Platform - Wastewater Treatment Monitoring
               </p>
             </div>
           </BCol>
@@ -155,21 +143,26 @@ export default {
               <BCardBody class="p-4">
                 <div class="text-center mt-2">
                   <h5 class="text-primary">Welcome Back !</h5>
-                  <p class="text-muted">Sign in to continue to Velzon.</p>
+                  <p class="text-muted">Sign in to continue to CSK-INNOVATE IoT.</p>
                 </div>
                 <div class="p-2 mt-4">
-                  <BAlert v-model="authError" variant="danger" class="mt-3" dismissible>{{ authError }}</BAlert>
-
-                  <div>
-
-                  </div>
+                  <BAlert v-if="isAuthError && authError" variant="danger" class="mt-3" dismissible @close="authError = null; isAuthError = false">
+                    {{ authError }}
+                  </BAlert>
 
                   <form @submit.prevent="tryToLogIn">
                     <div class="mb-3">
-                      <label for="email" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="email" placeholder="Enter email" v-model="email" />
-                      <div class="invalid-feedback">
-                        <span></span>
+                      <label for="username" class="form-label">Username</label>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        :class="{ 'is-invalid': submitted && v$.username.$error }"
+                        id="username" 
+                        placeholder="Enter username" 
+                        v-model="username" 
+                      />
+                      <div class="invalid-feedback" v-if="submitted && v$.username.$error">
+                        <span v-for="error in v$.username.$errors" :key="error.$uid">{{ error.$message }}</span>
                       </div>
                     </div>
 
@@ -180,14 +173,20 @@ export default {
                       </div>
                       <label class="form-label" for="password-input">Password</label>
                       <div class="position-relative auth-pass-inputgroup mb-3">
-                        <input type="password" v-model="password" class="form-control pe-5" placeholder="Enter password"
-                          id="password-input" />
+                        <input 
+                          type="password" 
+                          v-model="password" 
+                          class="form-control pe-5" 
+                          :class="{ 'is-invalid': submitted && v$.password.$error }"
+                          placeholder="Enter password"
+                          id="password-input" 
+                        />
                         <BButton variant="link" class="position-absolute end-0 top-0 text-decoration-none text-muted"
                           type="button" id="password-addon">
                           <i class="ri-eye-fill align-middle"></i>
                         </BButton>
-                        <div class="invalid-feedback">
-                          <span></span>
+                        <div class="invalid-feedback d-block" v-if="submitted && v$.password.$error">
+                          <span v-for="error in v$.password.$errors" :key="error.$uid">{{ error.$message }}</span>
                         </div>
                       </div>
                     </div>
@@ -199,29 +198,9 @@ export default {
                     </div>
 
                     <div class="mt-4">
-                      <BButton variant="success" class="w-100" type="submit" @click="signinapi" :disabled="processing">
-                        {{ processing ? "Please wait" : "Sign In" }}
+                      <BButton variant="success" class="w-100" type="submit" :disabled="processing">
+                        {{ processing ? "Please wait..." : "Sign In" }}
                       </BButton>
-                    </div>
-
-                    <div class="mt-4 text-center">
-                      <div class="signin-other-title">
-                        <h5 class="fs-13 mb-4 title">Sign In with</h5>
-                      </div>
-                      <div>
-                        <BButton variant="primary" type="button" class="btn btn-primary btn-icon">
-                          <i class="ri-facebook-fill fs-16"></i>
-                        </BButton>
-                        <BButton variant="danger" type="button" class="btn btn-danger btn-icon ms-1">
-                          <i class="ri-google-fill fs-16"></i>
-                        </BButton>
-                        <BButton variant="dark" type="button" class="btn btn-dark btn-icon ms-1">
-                          <i class="ri-github-fill fs-16"></i>
-                        </BButton>
-                        <BButton variant="info" type="button" class="btn btn-info btn-icon ms-1">
-                          <i class="ri-twitter-fill fs-16"></i>
-                        </BButton>
-                      </div>
                     </div>
                   </form>
                 </div>
@@ -229,12 +208,8 @@ export default {
             </BCard>
 
             <div class="mt-4 text-center">
-              <p class="mb-0">
-                Don't have an account ?
-                <router-link to="/register" class="fw-semibold text-primary
-                  text-decoration-underline">
-                  Signup
-                </router-link>
+              <p class="mb-0 text-muted">
+                Default login: <strong>admin / admin123</strong> or <strong>operator / operator123</strong>
               </p>
             </div>
           </BCol>
@@ -248,8 +223,7 @@ export default {
           <BCol lg="12">
             <div class="text-center">
               <p class="mb-0 text-muted">
-                &copy; {{ new Date().getFullYear() }} Velzon. Crafted with
-                <i class="mdi mdi-heart text-danger"></i> by Themesbrand
+                &copy; {{ new Date().getFullYear() }} CSK-INNOVATE Biogas. IoT Monitoring Platform
               </p>
             </div>
           </BCol>

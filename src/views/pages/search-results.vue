@@ -111,19 +111,19 @@ export default {
                 </template>
                 <div class="pb-3 pt-4">
                   <h5 class="mb-1">
-                    <BLink href="javascript:void(0);">Velzon - Responsive Bootstrap 5 Admin Dashboard</BLink>
+                    <BLink href="javascript:void(0);">CSK-INNOVATE - Responsive Bootstrap 5 Admin Dashboard</BLink>
                   </h5>
                   <p class="text-success mb-2">
-                    https://themesbrand.com/velzon/index.html
+                    https://themesbrand.com/CSK-INNOVATE/index.html
                   </p>
                   <p class="text-muted mb-2">
-                    Velzon admin is super flexible, powerful, clean, modern &
+                    CSK-INNOVATE admin is super flexible, powerful, clean, modern &
                     responsive admin template based on
                     <span class="fw-semibold">bootstrap 5</span> stable with
                     unlimited possibilities. You can simply change to any layout
                     or mode by changing a couple of lines of code. You can start
                     small and large projects or update design in your existing
-                    project using Velzon it is very quick and easy as it is
+                    project using CSK-INNOVATE it is very quick and easy as it is
                     beautiful, adroit, and delivers the ultimate user
                     experience.
                   </p>
@@ -1609,10 +1609,10 @@ export default {
                     <div class="list-element">
                       <h5 class="mb-1">
                         <BLink href="javascript:void(0);">Admin dashboard templates - Material Design for
-                          Velzon</BLink>
+                          CSK-INNOVATE</BLink>
                       </h5>
                       <p class="text-success">
-                        https://themesbrand.com/velzon/index.html
+                        https://themesbrand.com/CSK-INNOVATE/index.html
                       </p>
                       <div class="d-flex flex-column flex-sm-row">
                         <div class="flex-shrink-0">
@@ -1621,13 +1621,13 @@ export default {
                         </div>
                         <div class="flex-grow-1 ms-sm-3 mt-2 mt-sm-0">
                           <p class="text-muted mb-0">
-                            Velzon admin is super flexible, powerful, clean,
+                            CSK-INNOVATE admin is super flexible, powerful, clean,
                             modern & responsive admin template based on
                             <b>bootstrap 5</b> stable with unlimited
                             possibilities. You can simply change to any layout
                             or mode by changing a couple of lines of code. You
                             can start small and large projects or update design
-                            in your existing project using Velzon it is very
+                            in your existing project using CSK-INNOVATE it is very
                             quick and easy as it is beautiful, adroit, and
                             delivers the ultimate user experience.
                           </p>
@@ -1671,7 +1671,7 @@ export default {
                         <BLink href="javascript:void(0);">Create Responsive Admin Dashboard using Html CSS</BLink>
                       </h5>
                       <p class="text-success">
-                        https://themesbrand.com/velzon/index.html
+                        https://themesbrand.com/CSK-INNOVATE/index.html
                       </p>
                       <div class="d-flex flex-column flex-sm-row">
                         <div class="flex-shrink-0">
@@ -1680,13 +1680,13 @@ export default {
                         </div>
                         <div class="flex-grow-1 ms-sm-3 mt-2 mt-sm-0">
                           <p class="text-muted mb-0">
-                            Velzon admin is super flexible, powerful, clean,
+                            CSK-INNOVATE admin is super flexible, powerful, clean,
                             modern & responsive admin template based on
                             <b>bootstrap 5</b> stable with unlimited
                             possibilities. You can simply change to any layout
                             or mode by changing a couple of lines of code. You
                             can start small and large projects or update design
-                            in your existing project using Velzon it is very
+                            in your existing project using CSK-INNOVATE it is very
                             quick and easy as it is beautiful, adroit, and
                             delivers the ultimate user experience.
                           </p>
@@ -1727,11 +1727,11 @@ export default {
 
                     <div class="list-element mt-4">
                       <h5 class="mb-1">
-                        <BLink href="javascript:void(0);">Velzon - The Most Popular Bootstrap 5 HTML, Angular &
+                        <BLink href="javascript:void(0);">CSK-INNOVATE - The Most Popular Bootstrap 5 HTML, Angular &
                           React Js Admin</BLink>
                       </h5>
                       <p class="text-success">
-                        https://themesbrand.com/velzon/index.html
+                        https://themesbrand.com/CSK-INNOVATE/index.html
                       </p>
                       <div class="d-flex flex-column flex-sm-row">
                         <div class="flex-shrink-0">
@@ -1740,13 +1740,13 @@ export default {
                         </div>
                         <div class="flex-grow-1 ms-sm-3 mt-2 mt-sm-0">
                           <p class="text-muted mb-0">
-                            Velzon admin is super flexible, powerful, clean,
+                            CSK-INNOVATE admin is super flexible, powerful, clean,
                             modern & responsive admin template based on
                             <b>bootstrap 5</b> stable with unlimited
                             possibilities. You can simply change to any layout
                             or mode by changing a couple of lines of code. You
                             can start small and large projects or update design
-                            in your existing project using Velzon it is very
+                            in your existing project using CSK-INNOVATE it is very
                             quick and easy as it is beautiful, adroit, and
                             delivers the ultimate user experience.
                           </p>
@@ -1787,11 +1787,11 @@ export default {
 
                     <div class="list-element mt-4">
                       <h5 class="mb-1">
-                        <BLink href="javascript:void(0);">Velzon Admin Dashboard (website analytics) with
+                        <BLink href="javascript:void(0);">CSK-INNOVATE Admin Dashboard (website analytics) with
                           Bootstrap 5</BLink>
                       </h5>
                       <p class="text-success">
-                        https://themesbrand.com/velzon/index.html
+                        https://themesbrand.com/CSK-INNOVATE/index.html
                       </p>
                       <div class="d-flex flex-column flex-sm-row">
                         <div class="flex-shrink-0">
@@ -1800,13 +1800,13 @@ export default {
                         </div>
                         <div class="flex-grow-1 ms-sm-3 mt-2 mt-sm-0">
                           <p class="text-muted mb-0">
-                            Velzon admin is super flexible, powerful, clean,
+                            CSK-INNOVATE admin is super flexible, powerful, clean,
                             modern & responsive admin template based on
                             <b>bootstrap 5</b> stable with unlimited
                             possibilities. You can simply change to any layout
                             or mode by changing a couple of lines of code. You
                             can start small and large projects or update design
-                            in your existing project using Velzon it is very
+                            in your existing project using CSK-INNOVATE it is very
                             quick and easy as it is beautiful, adroit, and
                             delivers the ultimate user experience.
                           </p>
@@ -1850,7 +1850,7 @@ export default {
                         <BLink href="javascript:void(0);">Dashboard Admin Basics - YouTube</BLink>
                       </h5>
                       <p class="text-success">
-                        https://themesbrand.com/velzon/index.html
+                        https://themesbrand.com/CSK-INNOVATE/index.html
                       </p>
                       <div class="d-flex flex-column flex-sm-row">
                         <div class="flex-shrink-0">
@@ -1859,13 +1859,13 @@ export default {
                         </div>
                         <div class="flex-grow-1 ms-sm-3 mt-2 mt-sm-0">
                           <p class="text-muted mb-0">
-                            Velzon admin is super flexible, powerful, clean,
+                            CSK-INNOVATE admin is super flexible, powerful, clean,
                             modern & responsive admin template based on
                             <b>bootstrap 5</b> stable with unlimited
                             possibilities. You can simply change to any layout
                             or mode by changing a couple of lines of code. You
                             can start small and large projects or update design
-                            in your existing project using Velzon it is very
+                            in your existing project using CSK-INNOVATE it is very
                             quick and easy as it is beautiful, adroit, and
                             delivers the ultimate user experience.
                           </p>

@@ -61,9 +61,8 @@ export default {
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top job-navbar" id="navbar">
             <BContainer fluid class="custom-container">
                 <router-link class="navbar-brand" to="/">
-                    <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
-                    <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light"
-                        height="17">
+                    <span class="card-logo card-logo-dark logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
+                    <span class="card-logo card-logo-light logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
                 </router-link>
                 <BButton class="navbar-toggler py-0 fs-20 text-body" type="button" v-b-toggle.navbarSupportedContent>
                     <i class="mdi mdi-menu"></i>
@@ -170,7 +169,7 @@ export default {
                                             <i class="ri-mail-send-line"></i>
                                         </div>
                                     </div>
-                                    <h5 class="fs-15 lh-base mb-0">Work Inquiry from velzon</h5>
+                                    <h5 class="fs-15 lh-base mb-0">Work Inquiry from CSK-INNOVATE</h5>
                                 </div>
                             </BCard>
 
@@ -280,7 +279,7 @@ export default {
                                 </h1>
 
                                 <h6 class="fs-17 mb-2">Find Job</h6>
-                                <p class="text-muted mb-0 fs-15">Search for your dream jobs from velzon.</p>
+                                <p class="text-muted mb-0 fs-15">Search for your dream jobs from CSK-INNOVATE.</p>
                             </BCardBody>
                         </BCard>
                     </BCol>
@@ -1276,12 +1275,12 @@ export default {
                     <BCol lg="4" class="mt-4">
                         <div>
                             <div>
-                                <img src="@/assets/images/logo-light.png" alt="logo light" height="17" />
+                                <span class="card-logo card-logo-light logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
                             </div>
                             <div class="mt-4 fs-13">
                                 <p>Premium Multipurpose Admin & Dashboard Template</p>
                                 <p>You can build any type of web application like eCommerce, CRM, CMS, Project
-                                    management apps, Admin Panels, etc using Velzon.</p>
+                                    management apps, Admin Panels, etc using ZENZERO.</p>
                                 <ul class="list-inline mb-0 footer-social-link">
                                     <li class="list-inline-item">
                                         <BLink href="#" class="avatar-xs d-block">
@@ -1388,7 +1387,7 @@ export default {
                     <BCol sm="6">
                         <div>
                             <p class="copy-rights mb-0">
-                                {{ new Date().getFullYear() }} © Velzon - Themesbrand
+                                {{ new Date().getFullYear() }} © ZENZERO
                             </p>
                         </div>
                     </BCol>

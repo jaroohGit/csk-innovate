@@ -8,20 +8,11 @@ import "swiper/css/autoplay";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// Import Images
-import Img1 from "@/assets/images/demos/default.png";
-import Img2 from "@/assets/images/demos/saas.png";
-import Img3 from "@/assets/images/demos/material.png";
-import Img4 from "@/assets/images/demos/minimal.png";
-import Img5 from "@/assets/images/demos/creative.png";
-import Img6 from "@/assets/images/demos/modern.png";
-import Img7 from "@/assets/images/demos/interactive.png";
-
 export default {
     data() {
         return {
-            Img1, Img2, Img3, Img4, Img5, Img6, Img7,
             Autoplay, Navigation, Pagination,
+            previousTheme: null, // Store previous theme to restore later
         };
     },
     components: {
@@ -30,6 +21,19 @@ export default {
         CountTo,
     },
     methods: {
+        goToDashboard() {
+            const token = localStorage.getItem('jwt_token');
+            if (token) {
+                // User is logged in, go directly to dashboard
+                this.$router.push({ name: 'overview-dashboard' });
+            } else {
+                // User is not logged in, redirect to login with redirect parameter
+                this.$router.push({ 
+                    name: 'login',
+                    query: { redirect: '/overview/dashboard' }
+                });
+            }
+        },
 
         topFunction() {
             document.body.scrollTop = 0;
@@ -69,8 +73,16 @@ export default {
     },
     unmounted() {
         window.removeEventListener('scroll', this.setActiveSection);
+        // Restore previous theme when leaving landing page
+        if (this.previousTheme) {
+            document.documentElement.setAttribute('data-bs-theme', this.previousTheme);
+        }
     },
     mounted() {
+        // Save current theme and switch to dark mode for landing page
+        this.previousTheme = document.documentElement.getAttribute('data-bs-theme') || 'light';
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+        
         window.addEventListener('scroll', this.setActiveSection);
         let backtoTop = document.getElementById("back-to-top");
 
@@ -105,7 +117,7 @@ export default {
             }
         });
 
-        document.querySelector('.currentyear').innerHTML = new Date().getFullYear() + " © Velzon - Themesbrand";
+        document.querySelector('.currentyear').innerHTML = new Date().getFullYear() + " © ZENZERO";
     },
 };
 </script>
@@ -115,9 +127,8 @@ export default {
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
             <BContainer>
                 <router-link class="navbar-brand" to="/">
-                    <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
-                    <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light"
-                        height="17">
+                    <span class="card-logo card-logo-dark logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
+                    <span class="card-logo card-logo-light logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
                 </router-link>
                 <BButton variant="link" class="navbar-toggler py-0 fs-20 text-body" v-b-toggle.navbarSupportedContent>
                     <i class="mdi mdi-menu"></i>
@@ -149,48 +160,40 @@ export default {
                     </ul>
 
                     <div class="">
-                        <router-link to="/auth/signin-basic"
-                            class="btn btn-link fw-medium text-decoration-none text-dark">Sign
+                        <router-link to="/login"
+                            class="btn btn-link fw-medium text-decoration-none text-light">Sign
                             in</router-link>
-                        <router-link to="/auth/signup-basic" class="btn btn-primary">Sign Up</router-link>
+                        <router-link to="/register" class="btn btn-success">Sign Up</router-link>
                     </div>
                 </BCollapse>
             </BContainer>
         </nav>
         <div class="vertical-overlay" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent.show"></div>
-        <section class="section pb-0 hero-section" id="hero">
+        <section class="section pb-0 hero-section hero-section-custom" id="hero">
+            <div class="hero-bg-image"></div>
             <div class="bg-overlay bg-overlay-pattern"></div>
             <BContainer>
                 <BRow class="justify-content-center">
-                    <BCol lg="8" sm="10">
+                    <BCol lg="10" sm="12">
                         <div class="text-center mt-lg-5 pt-5">
-                            <h1 class="display-6 fw-semibold mb-3 lh-base">The better way to manage your website with
-                                <span class="text-success">Velzon </span>
+                            <h1 class="display-3 fw-bold mb-4 lh-base hero-title">
+                                Transforming <span class="text-success">Waste</span><br>
+                                into <span class="text-success">Clean Energy</span>
                             </h1>
-                            <p class="lead text-muted lh-base">Velzon is a fully responsive, multipurpose and premium
-                                Bootstrap 5 Admin & Dashboard Template built in multiple frameworks.</p>
+                            <p class="lead hero-subtitle mb-5">Innovative wastewater treatment solutions that convert organic waste into sustainable biogas energy,<br class="d-none d-md-block"> reducing environmental impact while generating clean power for communities.</p>
 
-                            <div class="d-flex gap-2 justify-content-center mt-4">
-                                <router-link to="/auth/signin-basic" class="btn btn-primary">Get Started <i
-                                        class="ri-arrow-right-line align-middle ms-1"></i></router-link>
-                                <router-link to="/pages/pricing" class="btn btn-danger">View Plans <i
-                                        class="ri-eye-line align-middle ms-1"></i></router-link>
+                            <div class="d-flex gap-3 justify-content-center mt-4 flex-wrap">
+                                <router-link to="#contact" @click.prevent="scrollToSection('contact')" class="btn btn-danger btn-lg px-4 py-3">
+                                    <i class="ri-mail-line align-middle me-2"></i>Contact
+                                </router-link>
+                                <router-link to="#services" @click.prevent="scrollToSection('services')" class="btn btn-outline-light btn-lg px-4 py-3">
+                                    <i class="ri-book-open-line align-middle me-2"></i>Our Story
+                                </router-link>
+                                <button @click="goToDashboard" class="btn btn-success btn-lg px-4 py-3">
+                                    <i class="ri-dashboard-line align-middle me-2"></i>Digital Transformation
+                                </button>
                             </div>
                         </div>
-
-                        <div class="mt-4 mt-sm-5 pt-sm-5 mb-sm-n5 demo-carousel">
-                            <div class="demo-img-patten-top d-none d-sm-block">
-                                <img src="@/assets/images/landing/img-pattern.png" class="d-block img-fluid" alt="...">
-                            </div>
-                            <div class="demo-img-patten-bottom d-none d-sm-block">
-                                <img src="@/assets/images/landing/img-pattern.png" class="d-block img-fluid" alt="...">
-                            </div>
-                            <BCarousel class="carousel slide carousel-fade" ride="carousel" :interval="2000" >
-                                <BCarouselSlide active :img-src="Img1" />
-                                <BCarouselSlide :img-src="Img2" />
-                                <BCarouselSlide :img-src="Img3" />
-                              </BCarousel>
-                           </div>
                     </BCol>
                 </BRow>
             </BContainer>
@@ -205,89 +208,15 @@ export default {
             </div>
         </section>
 
-        <div class="pt-5 mt-5">
-            <BContainer>
-                <BRow>
-                    <BCol lg="12">
-
-                        <div class="text-center mt-5">
-                            <h5 class="fs-20">Trusted <span class="text-primary text-decoration-underline">by</span> the
-                                world's best</h5>
-                            <div class="trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4">
-                                <swiper class="swiper responsive-swiper rounded gallery-light pb-4" :loop="true"
-                                    :autoplay="true" :modules="[Autoplay]" :slidesPerView="1" :spaceBetween="10"
-                                    :breakpoints="{ 640: { slidesPerView: 2, spaceBetween: 20 }, 768: { slidesPerView: 3, spaceBetween: 40 }, 1200: { slidesPerView: 4, spaceBetween: 50 }, }">
-                                    <swiper-slide>
-                                        <div class="swiper-slide">
-                                            <div class="client-images">
-                                                <img src="@/assets/images/clients/amazon.svg" alt="client-img"
-                                                    class="mx-auto img-fluid d-block">
-                                            </div>
-                                        </div>
-                                    </swiper-slide>
-
-                                    <swiper-slide>
-                                        <div class="swiper-slide">
-                                            <div class="client-images">
-                                                <img src="@/assets/images/clients/walmart.svg" alt="client-img"
-                                                    class="mx-auto img-fluid d-block">
-                                            </div>
-                                        </div>
-                                    </swiper-slide>
-
-                                    <swiper-slide>
-                                        <div class="swiper-slide">
-                                            <div class="client-images">
-                                                <img src="@/assets/images/clients/lenovo.svg" alt="client-img"
-                                                    class="mx-auto img-fluid d-block">
-                                            </div>
-                                        </div>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                        <div class="swiper-slide">
-                                            <div class="client-images">
-                                                <img src="@/assets/images/clients/paypal.svg" alt="client-img"
-                                                    class="mx-auto img-fluid d-block">
-                                            </div>
-                                        </div>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                        <div class="swiper-slide">
-                                            <div class="client-images">
-                                                <img src="@/assets/images/clients/shopify.svg" alt="client-img"
-                                                    class="mx-auto img-fluid d-block">
-                                            </div>
-                                        </div>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                        <div class="swiper-slide">
-                                            <div class="client-images">
-                                                <img src="@/assets/images/clients/verizon.svg" alt="client-img"
-                                                    class="mx-auto img-fluid d-block">
-                                            </div>
-                                        </div>
-                                    </swiper-slide>
-
-                                </swiper>
-                            </div>
-                        </div>
-
-                    </BCol>
-                </BRow>
-            </BContainer>
-        </div>
-
-
-
         <section class="section" id="services">
             <BContainer>
                 <BRow class="justify-content-center">
                     <BCol lg="8">
                         <div class="text-center mb-5">
-                            <h1 class="mb-3 ff-secondary fw-semibold lh-base">A Digital web design studio creating
-                                modern & engaging online</h1>
-                            <p class="text-muted">To achieve this, it would be necessary to have uniform grammar,
-                                pronunciation and more common words. If several languages coalesce the grammar</p>
+                            <h1 class="mb-3 ff-secondary fw-semibold lh-base">Comprehensive Wastewater Treatment Solutions
+                                for a Sustainable Future</h1>
+                            <p class="text-muted">Transform organic waste into clean energy with our innovative biogas technology and real-time monitoring systems. 
+                                We provide end-to-end solutions for industrial and agricultural wastewater management.</p>
                         </div>
                     </BCol>
                 </BRow>
@@ -298,14 +227,13 @@ export default {
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-pencil-ruler-2-line fs-36"></i>
+                                        <i class="ri-drop-line fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Creative Design</h5>
-                                <p class="text-muted my-3 ff-secondary">The creative design includes designs that are
-                                    unique, effective and memorable.</p>
+                                <h5 class="fs-18">Wastewater Treatment</h5>
+                                <p class="text-muted my-3 ff-secondary">Advanced biological treatment systems that efficiently process industrial and agricultural wastewater.</p>
                                 <div>
                                     <router-link to="#" class="fs-13 fw-medium">Learn More <i
                                             class="ri-arrow-right-s-line align-bottom"></i></router-link>
@@ -318,14 +246,13 @@ export default {
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-palette-line fs-36"></i>
+                                        <i class="ri-flashlight-line fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Unlimited Colors</h5>
-                                <p class="text-muted my-3 ff-secondary">The collection of rules and guidelines which
-                                    designers use to communicate with users through appealing.</p>
+                                <h5 class="fs-18">Biogas Production</h5>
+                                <p class="text-muted my-3 ff-secondary">Convert organic waste into renewable biogas energy through anaerobic digestion technology.</p>
                                 <div>
                                     <router-link to="#" class="fs-13 fw-medium">Learn More <i
                                             class="ri-arrow-right-s-line align-bottom"></i></router-link>
@@ -338,14 +265,13 @@ export default {
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-lightbulb-flash-line fs-36"></i>
+                                        <i class="ri-leaf-line fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Strategy Solutions</h5>
-                                <p class="text-muted my-3 ff-secondary">Business development firm that provides
-                                    strategic planning, market research services and project.</p>
+                                <h5 class="fs-18">Environmental Solutions</h5>
+                                <p class="text-muted my-3 ff-secondary">Sustainable waste management solutions that reduce environmental impact and carbon footprint.</p>
                                 <div>
                                     <router-link to="#" class="fs-13 fw-medium">Learn More <i
                                             class="ri-arrow-right-s-line align-bottom"></i></router-link>
@@ -358,14 +284,13 @@ export default {
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-customer-service-line fs-36"></i>
+                                        <i class="ri-dashboard-3-line fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Awesome Support</h5>
-                                <p class="text-muted my-3 ff-secondary">Awesome Support is the most versatile and
-                                    feature-rich support plugin for all version.</p>
+                                <h5 class="fs-18">Real-time Monitoring</h5>
+                                <p class="text-muted my-3 ff-secondary">24/7 IoT-based monitoring system with live data visualization and instant alerts.</p>
                                 <div>
                                     <router-link to="#" class="fs-13 fw-medium">Learn More <i
                                             class="ri-arrow-right-s-line align-bottom"></i></router-link>
@@ -378,14 +303,13 @@ export default {
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-stack-line fs-36"></i>
+                                        <i class="ri-line-chart-line fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Truly Multipurpose</h5>
-                                <p class="text-muted my-3 ff-secondary">You usually get a broad range of options to play
-                                    with. This enables you to use a single theme across multiple.</p>
+                                <h5 class="fs-18">Data Analytics</h5>
+                                <p class="text-muted my-3 ff-secondary">Comprehensive data analysis and reporting for performance optimization and decision making.</p>
                                 <div>
                                     <router-link to="#" class="fs-13 fw-medium">Learn More <i
                                             class="ri-arrow-right-s-line align-bottom"></i></router-link>
@@ -403,9 +327,8 @@ export default {
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Easy to customize</h5>
-                                <p class="text-muted my-3 ff-secondary">Personalise your own website, no matter what
-                                    theme and what customization options.</p>
+                                <h5 class="fs-18">Process Optimization</h5>
+                                <p class="text-muted my-3 ff-secondary">Advanced automation and control systems to maximize treatment efficiency and energy output.</p>
                                 <div>
                                     <router-link to="#" class="fs-13 fw-medium">Learn More <i
                                             class="ri-arrow-right-s-line align-bottom"></i></router-link>
@@ -419,14 +342,13 @@ export default {
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-slideshow-line fs-36"></i>
+                                        <i class="ri-test-tube-line fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Responsive & Clean Design</h5>
-                                <p class="text-muted my-3 ff-secondary">Responsive design is a graphic user interface
-                                    (GUI) design approach used to create content.</p>
+                                <h5 class="fs-18">Water Quality Testing</h5>
+                                <p class="text-muted my-3 ff-secondary">Comprehensive water quality analysis including BOD, COD, pH, ORP, and nutrient measurements.</p>
                                 <div>
                                     <router-link to="#" class="fs-13 fw-medium">Learn More <i
                                             class="ri-arrow-right-s-line align-bottom"></i></router-link>
@@ -439,14 +361,13 @@ export default {
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-google-fill fs-36"></i>
+                                        <i class="ri-recycle-line fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Google Font Collection</h5>
-                                <p class="text-muted my-3 ff-secondary">Google Fonts is a collection of 915 fonts, all
-                                    available to use for free on your website.</p>
+                                <h5 class="fs-18">Circular Economy</h5>
+                                <p class="text-muted my-3 ff-secondary">Transform waste into valuable resources, creating a sustainable circular economy model.</p>
                                 <div>
                                     <router-link to="#" class="fs-13 fw-medium">Learn More <i
                                             class="ri-arrow-right-s-line align-bottom"></i></router-link>
@@ -459,14 +380,13 @@ export default {
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-briefcase-5-line fs-36"></i>
+                                        <i class="ri-customer-service-line fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Top Industry Specialists</h5>
-                                <p class="text-muted my-3 ff-secondary">An industrial specialist works with industrial
-                                    operations to ensure that manufacturing facilities work.</p>
+                                <h5 class="fs-18">Expert Technical Support</h5>
+                                <p class="text-muted my-3 ff-secondary">Dedicated engineering team providing 24/7 technical support and maintenance services.</p>
                                 <div>
                                     <router-link to="#" class="fs-13 fw-medium">Learn More <i
                                             class="ri-arrow-right-s-line align-bottom"></i></router-link>
@@ -495,28 +415,28 @@ export default {
                                     <i class="ri-collage-line fs-36"></i>
                                 </div>
                             </div>
-                            <h3 class="mb-3 fs-20">Huge collection of widgets</h3>
-                            <p class="mb-4 ff-secondary fs-16">Collection widgets specialize in displaying many elements
-                                of the same type, such as a collection of pictures from a collection of articles from a
-                                news app or a collection of messages from a communication app.</p>
+                            <h3 class="mb-3 fs-20">Comprehensive IoT Dashboard</h3>
+                            <p class="mb-4 ff-secondary fs-16">Monitor and control your wastewater treatment system with our advanced IoT platform. 
+                                Real-time data visualization, automated alerts, and comprehensive reporting tools 
+                                for optimal system performance and decision making.</p>
 
                             <BRow class="pt-3">
                                 <BCol cols="3">
                                     <div class="text-center">
-                                        <h4>5</h4>
-                                        <p>Dashboards</p>
+                                        <h4>54+</h4>
+                                        <p>Sensors</p>
                                     </div>
                                 </BCol>
                                 <BCol cols="3">
                                     <div class="text-center">
-                                        <h4>150+</h4>
-                                        <p>Pages</p>
+                                        <h4>24/7</h4>
+                                        <p>Monitoring</p>
                                     </div>
                                 </BCol>
                                 <BCol cols="4">
                                     <div class="text-center">
-                                        <h4>7+</h4>
-                                        <p>Functional Apps</p>
+                                        <h4>100%</h4>
+                                        <p>Data Accuracy</p>
                                     </div>
                                 </BCol>
                             </BRow>
@@ -529,19 +449,20 @@ export default {
 
 
         <section class="py-5 bg-primary position-relative">
-            <div class="bg-overlay bg-overlay-pattern opacity-50"></div>
+            <div class="bg-overlay bg-overlay-pattern opacity-75"></div>
             <BContainer>
                 <BRow class="align-items-center gy-4">
                     <BCol sm>
                         <div>
-                            <h4 class="text-white mb-0 fw-semibold">Build your web App/SaaS with Velzon dashboard</h4>
+                            <h4 class="text-white mb-0 fw-semibold">Transform Your Waste into Sustainable Energy with CSK-INNOVATE</h4>
                         </div>
                     </BCol>
                     <BCol sm="auto">
                         <div>
-                            <router-link to="https://1.envato.market/velzon-admin" target="_blank"
-                                class="btn bg-gradient btn-danger"><i class="ri-shopping-cart-2-line align-middle me-1"></i>
-                                Buy Now</router-link>
+                            <button @click="goToDashboard" class="btn bg-gradient btn-success">
+                                <i class="ri-dashboard-line align-middle me-1"></i>
+                                View Dashboard
+                            </button>
                         </div>
                     </BCol>
                 </BRow>
@@ -554,11 +475,11 @@ export default {
                 <BRow class="align-items-center gy-4">
                     <BCol lg="6" order="2" order-lg="1">
                         <div class="text-muted">
-                            <h5 class="fs-12 text-uppercase text-success">Design</h5>
-                            <h4 class="mb-3">Well Designed Dashboards</h4>
-                            <p class="mb-4 ff-secondary">Quality Dashboards (QD) is a condition-specific, actionable
-                                web-based application for quality reporting and population
-                                management that is integrated into the Electronic Health Record (EHR).</p>
+                            <h5 class="fs-12 text-uppercase text-success">Technology</h5>
+                            <h4 class="mb-3">Advanced Monitoring Systems</h4>
+                            <p class="mb-4 ff-secondary">Our IoT-powered platform provides real-time monitoring and control 
+                                of wastewater treatment processes. Track critical parameters, optimize performance, 
+                                and ensure compliance with environmental regulations.</p>
 
                             <BRow>
                                 <BCol sm="5">
@@ -572,7 +493,7 @@ export default {
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <h5 class="fs-14 mb-0">Ecommerce</h5>
+                                                <h5 class="fs-14 mb-0">Real-time Data</h5>
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center">
@@ -596,7 +517,7 @@ export default {
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <h5 class="fs-14 mb-0">CRM</h5>
+                                                <h5 class="fs-14 mb-0">Alerts</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -612,7 +533,7 @@ export default {
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <h5 class="fs-14 mb-0">Crypto</h5>
+                                                <h5 class="fs-14 mb-0">Reports</h5>
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center">
@@ -624,7 +545,7 @@ export default {
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <h5 class="fs-14 mb-0">Projects</h5>
+                                                <h5 class="fs-14 mb-0">Remote Control</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -632,8 +553,8 @@ export default {
                             </BRow>
 
                             <div class="mt-4">
-                                <router-link to="/" class="btn btn-primary">Learn More <i
-                                        class="ri-arrow-right-line align-middle ms-1"></i></router-link>
+                                <button @click="goToDashboard" class="btn btn-success">View Dashboard <i
+                                        class="ri-arrow-right-line align-middle ms-1"></i></button>
                             </div>
                         </div>
                     </BCol>
@@ -652,11 +573,10 @@ export default {
                     </BCol>
                     <BCol lg="6">
                         <div class="text-muted ps-lg-5">
-                            <h5 class="fs-12 text-uppercase text-success">structure</h5>
-                            <h4 class="mb-3">Well Documented</h4>
-                            <p class="mb-4">used to describe something that is known about or known to be true because
-                                there are many documents that describe it,
-                                prove it, etc.</p>
+                            <h5 class="fs-12 text-uppercase text-success">Process</h5>
+                            <h4 class="mb-3">Proven Technology</h4>
+                            <p class="mb-4">Our anaerobic digestion technology has been proven in multiple industrial applications. 
+                                We provide complete documentation and training for system operation and maintenance.</p>
 
                             <div class="vstack gap-2">
                                 <div class="d-flex align-items-center">
@@ -668,7 +588,7 @@ export default {
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <p class="mb-0">Dynamic Content</p>
+                                        <p class="mb-0">Complete system integration</p>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center">
@@ -680,7 +600,7 @@ export default {
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <p class="mb-0">Setup plugin's information.</p>
+                                        <p class="mb-0">Staff training and support</p>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center">
@@ -692,7 +612,7 @@ export default {
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <p class="mb-0">Themes customization information</p>
+                                        <p class="mb-0">Comprehensive documentation</p>
                                     </div>
                                 </div>
                             </div>
@@ -710,9 +630,9 @@ export default {
                 <BRow class="justify-content-center">
                     <BCol lg="8">
                         <div class="text-center mb-5">
-                            <h3 class="mb-3 fw-semibold">Choose the plan that's right for you</h3>
-                            <p class="text-muted mb-4">Simple pricing. No hidden fees. Advanced features for you
-                                business.</p>
+                            <h3 class="mb-3 fw-semibold">Scalable Solutions for Every Operation</h3>
+                            <p class="text-muted mb-4">From small facilities to large industrial operations, we provide customized 
+                                wastewater treatment solutions tailored to your needs.</p>
 
                             <div class="d-flex justify-content-center align-items-center">
                                 <div>
@@ -1060,17 +980,17 @@ export default {
                     <BCol lg="8">
                         <div class="text-center mb-5">
                             <h3 class="mb-3 fw-semibold">Frequently Asked Questions</h3>
-                            <p class="text-muted mb-4 ff-secondary">If you can not find answer to your question in our
-                                FAQ, you can
-                                always contact us or email us. We will answer you shortly!</p>
+                            <p class="text-muted mb-4 ff-secondary">Have questions about our wastewater treatment solutions? 
+                                Find answers to common queries here, or contact our expert team for personalized assistance.</p>
 
                             <div class="hstack gap-2 justify-content-center">
-                                <BButton type="button" pill variant="primary" class="btn-label"><i
-                                        class="ri-mail-line label-icon align-middle rounded-pill fs-16 me-2"></i> Email
+                                <BButton type="button" pill variant="success" class="btn-label" @click="scrollToSection('contact')"><i
+                                        class="ri-mail-line label-icon align-middle rounded-pill fs-16 me-2"></i> Contact
                                     Us</BButton>
-                                <BButton type="button" pill variant="info" class="btn-label"><i
-                                        class="ri-twitter-line label-icon align-middle rounded-pill fs-16 me-2"></i>
-                                    Send Us Tweet</BButton>
+                                <button @click="goToDashboard" class="btn btn-primary btn-label rounded-pill">
+                                    <i class="ri-dashboard-line label-icon align-middle rounded-pill fs-16 me-2"></i>
+                                    View Dashboard
+                                </button>
                             </div>
                         </div>
                     </BCol>
@@ -1188,7 +1108,7 @@ export default {
                             <div>
                                 <i class="ri-double-quotes-l text-success display-3"></i>
                             </div>
-                            <h4 class="text-white mb-5"><span class="text-success">19k</span>+ Satisfied clients</h4>
+                            <h4 class="text-white mb-5"><span class="text-success">Trusted</span> by Leading Industries</h4>
 
                             <div class="client-review-swiper rounded">
                                 <swiper class="navigation-swiper rounded" :loop="true"
@@ -1385,10 +1305,9 @@ export default {
                 <BRow class="justify-content-center">
                     <BCol lg="8">
                         <div class="text-center mb-5">
-                            <h3 class="mb-3 fw-semibold">Our <span class="text-danger">Team</span></h3>
-                            <p class="text-muted mb-4 ff-secondary">To achieve this, it would be necessary to have
-                                uniform grammar,
-                                pronunciation and more common words. If several languages coalesce the grammar.</p>
+                            <h3 class="mb-3 fw-semibold">Our <span class="text-success">Expert Team</span></h3>
+                            <p class="text-muted mb-4 ff-secondary">Our team of experienced engineers and environmental specialists 
+                                are dedicated to providing innovative wastewater treatment solutions and exceptional support for your operations.</p>
                         </div>
                     </BCol>
                 </BRow>
@@ -1643,19 +1562,20 @@ export default {
         </section>
 
         <section class="py-5 bg-primary position-relative">
-            <div class="bg-overlay bg-overlay-pattern opacity-50"></div>
+            <div class="bg-overlay bg-overlay-pattern opacity-75"></div>
             <BContainer>
                 <BRow class="align-items-center gy-4">
                     <BCol sm>
                         <div>
-                            <h4 class="text-white mb-0 fw-semibold">Build your web App/SaaS with Velzon dashboard</h4>
+                            <h4 class="text-white mb-0 fw-semibold">Transform Your Waste into Sustainable Energy with CSK-INNOVATE</h4>
                         </div>
                     </BCol>
                     <BCol sm="auto">
                         <div>
-                            <router-link to="https://1.envato.market/velzon-admin" target="_blank"
-                                class="btn bg-gradient btn-danger"><i class="ri-shopping-cart-2-line align-middle me-1"></i>
-                                Buy Now</router-link>
+                            <button @click="goToDashboard" class="btn bg-gradient btn-success">
+                                <i class="ri-dashboard-line align-middle me-1"></i>
+                                View Dashboard
+                            </button>
                         </div>
                     </BCol>
                 </BRow>
@@ -1668,13 +1588,13 @@ export default {
                     <BCol lg="4" class="mt-4">
                         <div>
                             <div>
-                                <img src="@/assets/images/logo-light.png" alt="logo light" height="17">
+                                <span class="card-logo card-logo-light logo-text" style="--logo-text-size: 20px;">ZENZERO</span>
                             </div>
                             <div class="mt-4 fs-13">
                                 <p>Premium Multipurpose Admin & Dashboard Template</p>
                                 <p class="ff-secondary">You can build any type of web application like eCommerce, CRM,
                                     CMS, Project
-                                    management apps, Admin Panels, etc using Velzon.</p>
+                                    management apps, Admin Panels, etc using ZENZERO.</p>
                             </div>
                         </div>
                     </BCol>
@@ -1743,8 +1663,7 @@ export default {
                     <BCol sm="6">
 
                         <div>
-                            <p class="copy-rights mb-0 currentyear">{{ new Date().getFullYear() }} © Velzon -
-                                Themesbrand
+                            <p class="copy-rights mb-0 currentyear">{{ new Date().getFullYear() }} © ZENZERO
                             </p>
                         </div>
                     </BCol>
@@ -1797,3 +1716,140 @@ export default {
         </BButton>
     </div>
 </template>
+
+<style scoped>
+/* Custom hero section with background image */
+.hero-section-custom {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('@/assets/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 1;
+}
+
+.hero-section-custom .bg-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.6) 100%);
+    opacity: 0.85;
+    z-index: 2;
+}
+
+.hero-section-custom .text-center {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-section-custom .container {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-title {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 4rem !important;
+    letter-spacing: -1px;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    line-height: 1.2 !important;
+}
+
+.hero-title .text-success {
+    color: #4ade80 !important;
+}
+
+.hero-subtitle {
+    color: #e5e7eb !important;
+    font-size: 1.15rem !important;
+    font-weight: 400;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    line-height: 1.6;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-section-custom .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.hero-section-custom .btn-danger {
+    background-color: #ef4444;
+}
+
+.hero-section-custom .btn-danger:hover {
+    background-color: #dc2626;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.5);
+}
+
+.hero-section-custom .btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+}
+
+.hero-section-custom .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: #ffffff;
+    color: #1f2937;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.4);
+}
+
+.hero-section-custom .btn-success {
+    background-color: #22c55e;
+}
+
+.hero-section-custom .btn-success:hover {
+    background-color: #16a34a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(34, 197, 94, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem !important;
+    }
+    
+    .hero-section-custom .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark theme adjustments */
+[data-bs-theme="dark"] .hero-bg-image {
+    opacity: 1;
+}
+
+[data-bs-theme="dark"] .hero-section-custom .bg-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.7) 100%);
+    opacity: 0.85;
+}
+</style>
